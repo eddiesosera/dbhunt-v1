@@ -21,10 +21,24 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.eddiesosera.pracmap"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoiZWRkaWVvd2kiLCJhIjoiY2x2cmE3aTBvMDY2azJrbzlodXJvb29lMCJ9.VzBiJKws6Q_0cXI91Qwc9w"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "2a5c5463-2422-45d1-9a1d-b7a6cba4b3d4"
+      }
     }
   }
 }

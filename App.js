@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Mapbox from '@rnmapbox/maps';
+import Map from './components/Map';
 
-export default function App() {
+Mapbox.setAccessToken('pk.eyJ1IjoiZWRkaWVvd2kiLCJhIjoiY2x2cjZsdTI1MDV3bDJxbzlpM2Q4YmkzMyJ9.5OBJ64S7Dq7CBgNk9aHvng');
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.page}>
+      <Text style={styles.textHeader}>DBHunt Maps Practise</Text>
+      <Map />
     </View>
   );
 }
 
+export default App;
+
 const styles = StyleSheet.create({
-  container: {
+  page: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    gap: 20
   },
+  textHeader: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  }
 });
