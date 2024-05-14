@@ -2,7 +2,7 @@ import { Button, Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } f
 import React, { useEffect, useState } from 'react'
 import Mapbox, { Camera, MapView, MarkerView, PointAnnotation, ShapeSource, SymbolLayer } from '@rnmapbox/maps';
 
-import dragonballIcon from '../assets/img/dragonball.png';
+import dragonballIcon from '../../../assets/img/dragonball.png';
 import axios from 'axios';
 
 const token = 'pk.eyJ1IjoiZWRkaWVvd2kiLCJhIjoiY2x2cjZsdTI1MDV3bDJxbzlpM2Q4YmkzMyJ9.5OBJ64S7Dq7CBgNk9aHvng'
