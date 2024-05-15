@@ -14,8 +14,11 @@ export const PlayScreen = () => {
 
     useEffect(() => {
         bottomSheetModalRef.current?.present();
-        bottomSheetModalRef.current.snapToIndex = 0
-    }, [])
+    }, []);
+
+    const handleOnAnimate = () => {
+        bottomSheetModalRef.current?.snapToIndex(0);
+    };
 
     return (
         <BottomSheetModalProvider>
@@ -38,9 +41,12 @@ export const PlayScreen = () => {
             < BottomSheetModal
                 ref={bottomSheetModalRef}
                 index={0}
-                snapPoints={snapPoints}
+                snapPoints={['30%']}
                 handleComponent={null}
-
+                onAnimate={handleOnAnimate}
+                animatedIndex={0}
+                animateOnMount={false}
+                anima
                 // handleStyle={Handle}
                 // onChange={handleSheetChanges}
                 // handleComponent={Handle}
@@ -108,6 +114,16 @@ const styles = StyleSheet.create({
     },
     bottomSheet: {
         borderColor: "#D7D7D7",
-        borderWidth: 1
+        borderWidth: 0.75,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 10,
+        },
+        shadowOpacity: 0.51,
+        shadowRadius: 13.16,
+
+        elevation: 20,
+
     }
 })
