@@ -6,7 +6,7 @@ export const ChooseAvatarScreen = () => {
 
   const navigation = useNavigation();
   const goToScreen = () => {
-    navigation.navigate('Account', { screen: 'AccountStack' }); // Replace 'ScreenName' with the name of the screen you want to navigate to
+    navigation.navigate('Account', { screen: 'AccountStack' });
   };
 
   return (

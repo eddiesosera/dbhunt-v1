@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import MapsExample from './Maps';
 import MapView, { Marker } from 'react-native-maps';
 
-import dragonball from "../../../assets/icon.png"
+import dragonball from "../../../assets/img/misc/dragonball.png"
 
 export const PlayScreen = () => {
 
@@ -31,6 +31,7 @@ export const PlayScreen = () => {
                         latitudeDelta: 0.0922,
                         longitudeDelta: 0.0421,
                     }}
+                    onPress={(e) => { console.log("CLICKED", e.latitude) }}
                 >
                     <Marker coordinate={{ latitude: 37.78825, longitude: -122.4324 }}>
                         <Image style={{ height: 75, width: 75, borderRadius: 50 }} source={dragonball} />
