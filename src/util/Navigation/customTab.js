@@ -1,3 +1,4 @@
+import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useRef, useState } from 'react';
 import { View, Text, StyleSheet, Pressable, Dimensions, Animated } from 'react-native';;
 
@@ -34,8 +35,33 @@ export const CustomTab = ({ state, descriptors, navigation }) => {
                         });
                     };
 
-                    return (
+                    let iconName;
+                    // Renders icon based on name
+                    switch (label) {
+                        case 'Play':
+                            if (isFocused) {
+                                iconName = 'play';
+                            } else {
+                                iconName = 'play-outline';
+                            }
+                            break;
+                        case 'Fixture':
+                            if (isFocused) {
+                                iconName = 'podium';
+                            } else {
+                                iconName = 'podium-outline';
+                            }
+                            break;
+                        case 'Account':
+                            if (isFocused) {
+                                iconName = 'person';
+                            } else {
+                                iconName = 'person-outline';
+                            }
+                            break;
+                    };
 
+                    return (
                         <Pressable
                             role="button"
                             accessibilityState={isFocused ? { selected: true } : {}}
@@ -46,15 +72,18 @@ export const CustomTab = ({ state, descriptors, navigation }) => {
                             style={styles.navItem}
                             key={index}
                         >
-                            {/* <Icon variant={isFocused ? 'fill' : 'outline'} name={iconName} 
-                            fill={isFocused ? '#B7BAFF' : '#6F6C76'} size={28} /> */}
+
+                            <Ionicons name={iconName} size={30} color={isFocused ? '#060612' : '#C1C3CC'} />
 
                             {/* Screen name conditional rendering if page is active */}
-                            <Text style={[styles.navText, { color: isFocused ? 'red' : '#6F6C76', }]}>
+                            <Text style={[styles.navText, {
+                                color: isFocused ? '#060612' : '#C1C3CC',
+                                fontWeight: isFocused ? 'bold' : ''
+                            }]}>
                                 {label}
                             </Text>
-                        </Pressable>
 
+                        </Pressable>
                     );
                 })
             }
@@ -64,9 +93,15 @@ export const CustomTab = ({ state, descriptors, navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: '#FFF',
         flexDirection: 'row',
-        height: 60,
-        padding: 20
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        borderColor: '#ECE3D4',
+        borderTopWidth: 0.5,
+        height: 90,
+        // paddingHorizontal: 20,
+        // gap: 10,
     },
     animateItem: {
         flex: 1,
@@ -82,12 +117,13 @@ const styles = StyleSheet.create({
         // flexDirection: 'column',
         // alignItems: 'center',
         // justifyContent: 'center',
-        // gap: 5,
+        gap: 10,
+        alignItems: 'center'
     },
     navText: {
         marginTop: -7,
-        fontSize: 16,
-        color: '#000'
+        fontSize: 12,
+        // color: '#000'
         // fontFamily: "Jakarta",
     }
 })
