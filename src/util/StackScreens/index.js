@@ -14,6 +14,7 @@ import { OnboardingScreen } from '../../screens/Onboarding';
 import { LoginScreen } from '../../screens/Onboarding/Login';
 import { RegisterScreen } from '../../screens/Onboarding/Register';
 import { ChooseAvatarScreen } from '../../screens/Onboarding/ChooseAvatar';
+import MapsExample from '../../screens/Play/Maps';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ export const PlayStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false, }}>
       <Stack.Screen name="PlayStack" component={PlayScreen} />
+      {/* <Stack.Screen name="TournamentsStack" component={MapsExample} /> */}
     </Stack.Navigator>
   )
 };

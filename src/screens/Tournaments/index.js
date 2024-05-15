@@ -1,6 +1,7 @@
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from 'react-native';
 import React, { useState } from 'react';
 import { ModalElement } from '../../elements/Modal';
+import MapsExample from '../Play/Maps';
 
 export const TournamentsScreen = () => {
     const [modalVisible, setModalVisible] = useState(false);
