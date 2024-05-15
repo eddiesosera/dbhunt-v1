@@ -1,10 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 export const ChooseAvatarScreen = () => {
+
+  const navigation = useNavigation();
+  const goToScreen = () => {
+    navigation.navigate('Account', { screen: 'AccountStack' }); // Replace 'ScreenName' with the name of the screen you want to navigate to
+  };
+
   return (
     <View>
-      <Text>Choose Avatar</Text>
+      <Text>Choose Avatar Screen</Text>
+      <TouchableOpacity onPress={goToScreen}>
+        <Text>Go to - Account</Text>
+      </TouchableOpacity>
     </View>
   )
 }

@@ -6,7 +6,7 @@ import { InfoTournamentScreen } from '../../screens/Tournaments/Create/InfoTourn
 import { PlaceBallsTournamentScreen } from '../../screens/Tournaments/Create/PlaceBallsTournament';
 import { SubmitTournamentScreen } from '../../screens/Tournaments/Create/SubmitTournament';
 import { LeaderboardScreen } from '../../screens/Tournaments/Leaderboard';
-import { EditAccountScreen } from '../../screens/Account/EditAccount';
+import { EditAccountScreen } from '../../screens/Account/Stack/EditAccount';
 import { TournamentWinnerScreen } from '../../screens/Tournaments/Winner';
 import { TournamentsScreen } from '../../screens/Tournaments';
 import { AccountScreen } from '../../screens/Account';

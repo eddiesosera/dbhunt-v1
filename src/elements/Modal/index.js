@@ -18,9 +18,6 @@ export const ModalElement = ({ children, isOpened, setModalVisible }) => {
             <View style={styles.centeredView}>
                 <View style={styles.modalView}>
                     {children}
-                    {/* <Pressable style={[styles.button, styles.buttonClose]} onPress={() => setModalVisible(!isOpened)}>
-                        <Text style={styles.textStyle}>Hide Modal</Text>
-                    </Pressable> */}
                 </View>
             </View>
         </Modal>
