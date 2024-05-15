@@ -1,10 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StatusBar, StyleSheet, Text, View } from 'react-native'
 import React from 'react';
+import { TopSection } from './Sections/Top';
+import { MidSection } from './Sections/Mid';
+import { BottomSection } from './Sections/Btm';
 
 export const AccountScreen = () => {
     return (
         <View>
-            <Text>Account</Text>
+            <StatusBar />
+            <TopSection />
+            <MidSection />
+            <BottomSection />
         </View>
     )
 }
