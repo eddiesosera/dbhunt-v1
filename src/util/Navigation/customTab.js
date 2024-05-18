@@ -73,15 +73,15 @@ export const CustomTab = ({ state, descriptors, navigation }) => {
                             key={index}
                         >
 
-                            <Ionicons name={iconName} size={30} color={isFocused ? '#060612' : '#C1C3CC'} />
+                            <Ionicons name={iconName} size={28} color={isFocused ? '#060612' : '#C1C3CC'} />
 
                             {/* Screen name conditional rendering if page is active */}
-                            <Text style={[styles.navText, {
+                            {/* <Text style={[styles.navText, {
                                 color: isFocused ? '#060612' : '#C1C3CC',
                                 fontWeight: isFocused ? 'bold' : ''
                             }]}>
                                 {label}
-                            </Text>
+                            </Text> */}
 
                         </Pressable>
                     );
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderColor: '#ECE3D4',
         borderTopWidth: 0.5,
-        height: 90,
+        height: 60,
         // paddingHorizontal: 20,
         // gap: 10,
     },
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     },
     navText: {
         marginTop: -7,
-        fontSize: 12,
+        fontSize: 10,
         // color: '#000'
         // fontFamily: "Jakarta",
     }
