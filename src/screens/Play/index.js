@@ -126,10 +126,10 @@ export const FilterSettingsContent = ({ isDragonballActive }) => {
                 ) : (
                     <View style={styles.selectDBWrap}>
                         <View style={styles.noDBSelectedTextWrap}>
-                            <Text style={styles.noDBSelectedText}>No Dragonball Selected</Text>
+                            <Text style={[styles.noDBSelectedText, styles.text]}>No Dragonball Selected</Text>
                         </View>
                         <TouchableOpacity style={GlobalStyle.PrimaryFillButton}>
-                            <Text style={GlobalStyle.PrimaryFillButtonText}>Find Dragonballs</Text>
+                            <Text style={[GlobalStyle.PrimaryFillButtonText]}>Find Dragonballs</Text>
                         </TouchableOpacity>
                     </View>
                 )
@@ -154,8 +154,7 @@ const styles = StyleSheet.create({
         height: '100%',
     },
     text: {
-        marginTop: 20,
-        margin: 50
+        fontFamily: 'Mona-Sans Wide'
     },
     bottomSheet: {
         borderColor: "#D7D7D7",
@@ -202,7 +201,8 @@ const styles = StyleSheet.create({
         // backgroundColor: 'yellow'
     },
     selectedRightDBTitle: {
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: 'Mona-Sans Wide Bold'
     },
     selectedRightBtm: {
         flex: 1,
@@ -216,7 +216,8 @@ const styles = StyleSheet.create({
         gap: 5,
     },
     selectedRightBtmItemText: {
-        fontSize: 14
+        fontFamily: 'Mona-Sans Wide',
+        fontSize: 13
     },
 
     // When No Dragonball is selected

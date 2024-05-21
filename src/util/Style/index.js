@@ -7,10 +7,11 @@ export const GlobalStyle = StyleSheet.create({
         alignItems: 'center',
         padding: 15,
         width: 'auto',
+        // fontFamily: 'Mona-Sans Wide Bold'
     },
     PrimaryFillButtonText: {
         color: '#F4F1ED',
         fontSize: 15,
-        fontWeight: '700'
+        fontFamily: 'Mona-Sans Wide Bold'
     }
 })
