@@ -10,7 +10,9 @@ const Stack = createStackNavigator();
 
 export const TabNavigate = () => {
     return (
-        <Tab.Navigator initialRouteName='Play' tabBar={(props) => <CustomTab {...props} />} screenOptions={{ headerShown: false }}>
+        <Tab.Navigator initialRouteName='Play'
+            tabBar={(props) => <CustomTab {...props} />}
+            screenOptions={{ headerShown: false }}>
             <Tab.Screen name="Fixture" component={TournamentsStack} />
             <Tab.Screen name="Play" component={PlayStack} />
             <Tab.Screen name="Account" component={AccountStack} />
@@ -27,4 +29,10 @@ export const MainNavigation = () => {
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    tabBar: {
+        backgroundColor: 'transparent',
+        position: 'absolute',
+        borderTopWidth: 0,
+    },
+})

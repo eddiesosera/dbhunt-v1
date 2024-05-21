@@ -141,9 +141,10 @@ export const FilterSettingsContent = ({ isDragonballActive }) => {
 const styles = StyleSheet.create({
     page: {
         flex: 1,
+        height: 'auto',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'red'
+        // backgroundColor: 'red'
     },
     container: {
         height: 300,

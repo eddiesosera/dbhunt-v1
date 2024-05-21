@@ -19,7 +19,12 @@ export const LoadFonts = async (getFontsLoadedState) => {
         'Mona-Sans Light': require('./Mona Sans/Mona-Sans-Light.ttf'),
 
         // Obrazec
-        'Mona-Sans': require('./Mona Sans/Mona-Sans-Regular.ttf'),
+        'Obrazec': require('./Obrazec/obrazec.otf'),
+
+        // Saiyans Sans
+        'Saiyans Sans': require('./Saiyan Sans/Saiyan-Sans.ttf'),
+        'Saiyans Sans Left Oblique': require('./Saiyan Sans/Saiyan-Sans Left Oblique.ttf'),
+        'Saiyans Sans Right Oblique': require('./Saiyan Sans/Saiyan-Sans Right Oblique.ttf'),
     });
 
     isFontLoadeed = true;

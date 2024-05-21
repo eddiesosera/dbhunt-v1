@@ -19,4 +19,50 @@ export const OnboardingScreen = () => {
     )
 };
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        gap: 40,
+        flexDirection: 'column',
+        justifyContent: 'space-between'
+    },
+
+    // Top Section
+    topWrap: {
+        // width: screenWidth,
+    },
+    dbImg: {
+        objectFit: 'cover',
+        width: screenWidth,
+        height: 150,
+    },
+
+    // Mid Section
+    midWrap: {
+
+    },
+
+    // Bottom Section
+    btmWrap: {
+        padding: 20,
+        marginBottom: 20,
+        gap: 20,
+        alignItems: 'center',
+    },
+    logo: {
+        width: 75,
+        height: 34.25,
+        // aspectRatio: 1 / 1,
+    },
+    createAccountWrap: {
+        flexDirection: 'row',
+        gap: 5
+    },
+    createAccountText: {
+        fontFamily: 'Mona-Sans Wide'
+    },
+    createAccountNavText: {
+        color: '#3D58F2',
+        fontFamily: 'Mona-Sans Wide SemiBold',
+    }
+})
