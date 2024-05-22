@@ -1,24 +1,24 @@
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { LoginForm } from './LoginForm';
 
 import dragonBalls from '../../../../assets/img/misc/screens/onboarding/dbTopImg.png';
 import logo from '../../../../assets/img/logo/app_logo_bnw.png'
+import { Context } from '../../../util/Global';
 
 const screenWidth = Dimensions.get("screen").width;
 const screenHeight = Dimensions.get("screen").height;
 
 export const LoginScreen = () => {
-
+  const { user, setUser } = useContext(Context);
   const navigation = useNavigation();
   const goToScreen = (screen, stack) => {
-    navigation.navigate(stack, { screen: screen }); // Replace 'ScreenName' with the name of the screen you want to navigate to
+    navigation.navigate(stack, { screen: screen });
   };
 
   return (
     <View style={styles.container}>
-      {/* <Text>Login Screen</Text> */}
 
       <View style={styles.topWrap}>
         <Image source={dragonBalls} style={styles.dbImg} />
@@ -32,7 +32,8 @@ export const LoginScreen = () => {
           <Text style={styles.createAccountText}>Don't have an account yet?</Text>
           <Text onPress={() => { goToScreen('Register', 'OnboardingStack') }}
             style={[styles.createAccountText, styles.createAccountNavText]}>
-            Register</Text>
+            Register {user}
+          </Text>
         </View>
         <Image source={logo} style={styles.logo} />
       </View>

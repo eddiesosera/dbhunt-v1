@@ -1,12 +1,53 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react';
+import { StyleSheet } from 'react-native'
+import React, { useContext, useEffect, useState } from 'react';
 import { AccountStack, OnboardingStack, PlayStack, TournamentsStack } from '../StackScreens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { CustomTab } from './customTab';
 import { createStackNavigator } from '@react-navigation/stack';
+import { onAuthStateChanged } from 'firebase/auth';
+import { Context } from '../Global';
+import { auth } from '../Auth';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
+
+export const MainNavigation = () => {
+    const { userEmail, setUserEmail } = useContext(Context);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setLoggedIn(true)
+                console.log("User logged in: " + user.email);
+            } else {
+                setLoggedIn(false)
+                console.log("No user logged in");
+            }
+        })
+        return unsubscribe;
+    }, [userEmail]);
+
+    return (
+        <NavigationContainer>
+            {
+                userEmail !== ""
+                    ? (
+                        <Stack.Navigator screenOptions={{ headerShown: false }}>
+                            <Stack.Screen name="Tabs" component={TabNavigate} />
+                            <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
+                        </Stack.Navigator>
+                    )
+                    : (
+                        <Stack.Navigator screenOptions={{ headerShown: false }}>
+                            <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
+                        </Stack.Navigator>
+                    )
+            }
+        </NavigationContainer>
+    );
+
+};
 
 export const TabNavigate = () => {
     return (
@@ -20,14 +61,6 @@ export const TabNavigate = () => {
     )
 }
 
-export const MainNavigation = () => {
-    return (
-        <Stack.Navigator screenOptions={{ headerShown: false, }}>
-            <Stack.Screen name="Tabs" component={TabNavigate} />
-            <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
-        </Stack.Navigator>
-    )
-}
 
 const styles = StyleSheet.create({
     tabBar: {

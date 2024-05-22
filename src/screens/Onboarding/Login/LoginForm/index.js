@@ -1,35 +1,56 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import React, { useContext, useEffect, useState } from 'react';
 import { GlobalStyle } from '../../../../util/Style';
 import { useNavigation } from '@react-navigation/native';
+import { Context } from '../../../../util/Global';
+import { Login } from '../../../../util/Auth/Services/login.service';
 
 export const LoginForm = () => {
+    const navigation = useNavigation();
+    const { userEmail, setUserEmail } = useContext(Context);
 
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(true);
 
-    const navigation = useNavigation();
-    const goToScreen = (screen) => {
-        navigation.navigate('OnboardingStack', { screen: screen }); // Replace 'ScreenName' with the name of the screen you want to navigate to
+    const goToScreen = () => {
+        navigation.navigate('Register', { screen: 'OnboardinStack' });
     };
+
+    useEffect(() => {
+        setUserEmail(email)
+    }, [email, userEmail]);
+
+    const handleSubmit = () => {
+        const response = Login(email, password, goToScreen)
+        console.log(response)
+    }
 
     return (
         <View style={styles.container}>
 
             <View style={styles.header}>
                 <Text style={styles.headerText}>
-                    Login
-                    to Play
+                    Login to Play {userEmail}
                 </Text>
             </View>
 
             <View style={styles.formWrap}>
                 <View style={styles.inputWrap}>
-                    <TextInput style={[styles.inputText]} placeholder='Enter email or username' />
+                    <TextInput
+                        onChangeText={value => setEmail(value)}
+                        style={[styles.inputText]}
+                        placeholder='Email or username'
+                    />
                 </View>
                 <View style={styles.inputLogin}>
                     <View style={styles.inputWrap}>
-                        <TextInput style={[styles.inputText]} placeholder='Password' secureTextEntry={showPassword} />
+                        <TextInput
+                            onChangeText={value => setPassword(value)}
+                            style={[styles.inputText]}
+                            placeholder='Password'
+                            secureTextEntry={showPassword}
+                        />
                     </View>
                     <TouchableOpacity style={styles.forgotPasswordWrap}>
                         <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
@@ -37,19 +58,16 @@ export const LoginForm = () => {
                 </View>
             </View>
 
-            <TouchableOpacity style={GlobalStyle.PrimaryFillButton}>
+            <TouchableOpacity onPress={handleSubmit} style={GlobalStyle.PrimaryFillButton}>
                 <Text style={GlobalStyle.PrimaryFillButtonText}>Login Account</Text>
             </TouchableOpacity>
 
-            <View></View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
-        // backgroundColor: "red"
         padding: 20,
         gap: 60,
         alignItems: 'center',
