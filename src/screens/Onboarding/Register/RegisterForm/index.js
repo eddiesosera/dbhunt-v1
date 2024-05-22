@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { GlobalStyle } from '../../../../util/Style';
+import { useNavigation } from '@react-navigation/native';
 
 export const RegisterForm = () => {
 
