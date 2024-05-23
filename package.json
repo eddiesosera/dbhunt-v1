@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@ernesto_tech/expo-gl-image-filters": "^0.6.0",
     "@expo/vector-icons": "^14.0.1",
     "@gorhom/bottom-sheet": "^4.6.1",
     "@react-navigation/bottom-tabs": "^6.5.20",
@@ -21,11 +22,12 @@
     "expo-linear-gradient": "^13.0.2",
     "expo-status-bar": "^1.12.1",
     "firebase": "^10.12.1",
+    "gl-react-expo": "^5.2.1",
     "react": "18.2.0",
     "react-native": "^0.74.1",
     "react-native-animatable": "^1.4.0",
-    "react-native-color-matrix-image-filters": "^6.0.9",
     "react-native-gesture-handler": "^2.16.1",
+    "react-native-gl-image-filters": "^0.5.0",
     "react-native-maps": "1.14.0",
     "react-native-modal": "^13.0.1",
     "react-native-reanimated": "^3.10.0",

@@ -10,7 +10,6 @@ import char4 from '../../../../assets/img/characters/trunks-crop.png';
 import char5 from '../../../../assets/img/characters/majin-boo.png';
 import { GlobalStyle } from '../../../util/Style';
 import { Ionicons } from '@expo/vector-icons';
-import { Grayscale } from 'react-native-color-matrix-image-filters';
 
 const width = Dimensions.get("screen").width;
 
@@ -51,18 +50,19 @@ export const ChooseAvatarScreen = () => {
   ];
   const viewSelectedAvatar = characters.find(avatar => avatar.id === selectedAvatar);
 
+  const state = {
+    contrast: 1,
+    saturation: 1,
+  };
+
   const saveAvatar = () => {
     // Save avatar to profile
     // Design and show Profile animation, THEN navigate to account
     navigation.navigate('Account', { screen: 'AccountStack' });
-  }
+  };
 
   return (
     <View style={styles.container}>
-      {/* <Text>Choose Avatar Screen</Text>
-      <TouchableOpacity onPress={goToScreen}>
-        <Text>Go to - Account</Text>
-      </TouchableOpacity> */}
 
       <View style={styles.topWrap}>
         <View style={styles.topBannerWrap}>
@@ -100,9 +100,7 @@ export const ChooseAvatarScreen = () => {
                         selectedAvatar === character.id
                           ? (<Image source={character.img} style={styles.bottomImg} />)
                           : (
-                            // <Grayscale>
                             <Image source={character.img} style={styles.bottomImg} />
-                            // </Grayscale>
                           )
                       }
 

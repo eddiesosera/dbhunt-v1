@@ -9,4 +9,43 @@ export const MidSection = () => {
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+
+    },
+
+    // Top Section
+    midTopDeetsWrap: {
+
+    },
+    midTopDeetsTopWrap: {
+
+    },
+    midTopDeetsTopAvatar: {
+
+    },
+    midTopDeetsTopUsername: {
+
+    },
+
+    midTopDeetsBtmWrap: {
+
+    },
+    midTopDeetsBtmItemWrap: {
+
+    },
+    midTopDeetsBtmItemText: {
+
+    },
+
+    // Bottom section
+    midTopBtmWrap: {
+
+    },
+    midTopBtmCompetitionsWrap: {
+
+    },
+    midTopBtmCompetitionsText: {
+
+    },
+})

@@ -40,8 +40,8 @@ export const MainNavigation = () => {
                     )
                     : (
                         <Stack.Navigator screenOptions={{ headerShown: false }}>
-                            <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
                             <Stack.Screen name="Tabs" component={TabNavigate} />
+                            <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
                         </Stack.Navigator>
                     )
             }
