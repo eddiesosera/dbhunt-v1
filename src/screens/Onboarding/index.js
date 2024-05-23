@@ -8,7 +8,7 @@ export const OnboardingScreen = () => {
 
     const navigation = useNavigation();
     const goToScreen = () => {
-        navigation.navigate('OnboardingStack', { screen: 'Login' }); // Replace 'ScreenName' with the name of the screen you want to navigate to
+        navigation.navigate('OnboardingStack', { screen: 'Login' });
     };
 
     return (

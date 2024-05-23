@@ -13,7 +13,7 @@ export const RegisterScreen = () => {
 
   const navigation = useNavigation();
   const goToScreen = (screen) => {
-    navigation.navigate('OnboardingStack', { screen: screen }); // Replace 'ScreenName' with the name of the screen you want to navigate to
+    navigation.navigate('OnboardingStack', { screen: screen });
   };
 
   return (

@@ -14,5 +14,21 @@ export const GlobalStyle = StyleSheet.create({
         color: '#F4F1ED',
         fontSize: 16,
         fontFamily: 'Mona-Sans Wide Bold'
-    }
+    },
+    LightOutlineButton: {
+        // backgroundColor: '#3D58F2',
+        borderWidth: 1,
+        borderColor: '#CDCDCD',
+        borderRadius: 8,
+        alignItems: 'center',
+        paddingVertical: 18,
+        paddingHorizontal: 15,
+        width: '100%',
+        // fontFamily: 'Mona-Sans Wide Bold'
+    },
+    LightOutlineButtonText: {
+        color: '#393939',
+        fontSize: 16,
+        fontFamily: 'Mona-Sans Wide Bold'
+    },
 })

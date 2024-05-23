@@ -10,8 +10,12 @@ export const RegisterForm = () => {
 
     const navigation = useNavigation();
     const goToScreen = (screen) => {
-        navigation.navigate('OnboardingStack', { screen: screen }); // Replace 'ScreenName' with the name of the screen you want to navigate to
+        navigation.navigate('OnboardingStack', { screen: screen });
     };
+
+    const handleRegister = () => {
+        navigation.navigate('ChooseAvatar', { screen: 'OnboardinStack' });
+    }
 
     return (
         <View style={styles.container}>
@@ -38,7 +42,10 @@ export const RegisterForm = () => {
                 </View>
             </View>
 
-            <TouchableOpacity style={GlobalStyle.PrimaryFillButton}>
+            <TouchableOpacity
+                onPress={handleRegister}
+                style={GlobalStyle.PrimaryFillButton}
+            >
                 <Text style={GlobalStyle.PrimaryFillButtonText}>Register Account</Text>
             </TouchableOpacity>
 
