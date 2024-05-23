@@ -10,6 +10,7 @@ import char4 from '../../../../assets/img/characters/trunks-crop.png';
 import char5 from '../../../../assets/img/characters/majin-boo.png';
 import { GlobalStyle } from '../../../util/Style';
 import { Ionicons } from '@expo/vector-icons';
+import { Grayscale } from 'react-native-color-matrix-image-filters';
 
 const width = Dimensions.get("screen").width;
 
@@ -48,12 +49,12 @@ export const ChooseAvatarScreen = () => {
       img: char5
     },
   ];
-
   const viewSelectedAvatar = characters.find(avatar => avatar.id === selectedAvatar);
 
   const saveAvatar = () => {
     // Save avatar to profile
-    // Design and show Profile animation the navigate to account
+    // Design and show Profile animation, THEN navigate to account
+    navigation.navigate('Account', { screen: 'AccountStack' });
   }
 
   return (
@@ -91,15 +92,24 @@ export const ChooseAvatarScreen = () => {
               characters.map((character, i) => {
                 return (
                   character.id !== "ADD_NEW"
-                    ? <TouchableOpacity
+                    ? (<TouchableOpacity
                       onPress={() => { setSelectedAvatar(character.id) }}
                       style={[
                         styles.bottomImgWrap, selectedAvatar === character.id && styles.selectedWrap,]}>
-                      <Image source={character.img} style={styles.bottomImg} />
-                    </TouchableOpacity>
-                    : <TouchableOpacity style={styles.bottomImgWrap}>
-                      <Ionicons name="cloud-upload-outline" size={36} color="black" />
-                    </TouchableOpacity>
+                      {
+                        selectedAvatar === character.id
+                          ? (<Image source={character.img} style={styles.bottomImg} />)
+                          : (
+                            // <Grayscale>
+                            <Image source={character.img} style={styles.bottomImg} />
+                            // </Grayscale>
+                          )
+                      }
+
+                    </TouchableOpacity>)
+                    : (<TouchableOpacity style={styles.bottomImgWrap}>
+                      <Ionicons name="cloud-upload-outline" size={36} color="#55575D" />
+                    </TouchableOpacity>)
                 )
               })
             }
@@ -113,7 +123,9 @@ export const ChooseAvatarScreen = () => {
             style={[GlobalStyle.LightOutlineButton, styles.bottomBtmButtonOutline]}>
             <Text style={GlobalStyle.LightOutlineButtonText}>Skip</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[GlobalStyle.PrimaryFillButton, styles.bottomBtmButtonFill]}>
+          <TouchableOpacity
+            onPress={saveAvatar}
+            style={[GlobalStyle.PrimaryFillButton, styles.bottomBtmButtonFill]}>
             <Text style={GlobalStyle.PrimaryFillButtonText}>Continue</Text>
           </TouchableOpacity>
         </View>
