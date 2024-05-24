@@ -9,4 +9,34 @@ export const BottomSection = () => {
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+
+    },
+
+    // Top Header Label
+    btmHeaderWrap: {
+
+    },
+    btmLabelWrap: {
+
+    },
+    btmLabelText: {
+
+    },
+    btmLabelNumberOfBadges: {
+
+    },
+
+    // Badges List
+    btmBadgesWrap: {
+
+    },
+    btmBadgeWrap: {
+
+    },
+    btmBadgeText: {
+
+    },
+
+})
