@@ -42,21 +42,21 @@ export const CustomTab = ({ state, descriptors, navigation }) => {
                             if (isFocused) {
                                 iconName = 'play';
                             } else {
-                                iconName = 'play-outline';
+                                iconName = 'play';
                             }
                             break;
                         case 'Fixture':
                             if (isFocused) {
-                                iconName = 'podium';
+                                iconName = 'ribbon';
                             } else {
-                                iconName = 'podium-outline';
+                                iconName = 'ribbon';
                             }
                             break;
                         case 'Account':
                             if (isFocused) {
                                 iconName = 'person';
                             } else {
-                                iconName = 'person-outline';
+                                iconName = 'person';
                             }
                             break;
                     };
@@ -73,7 +73,7 @@ export const CustomTab = ({ state, descriptors, navigation }) => {
                             key={index}
                         >
 
-                            <Ionicons name={iconName} size={28} color={isFocused ? '#060612' : '#C1C3CC'} />
+                            <Ionicons name={iconName} size={28} color={isFocused ? '#060612' : '#939398'} />
 
                             {/* Screen name conditional rendering if page is active */}
                             {/* <Text style={[styles.navText, {
@@ -93,12 +93,12 @@ export const CustomTab = ({ state, descriptors, navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#FFF',
+        backgroundColor: '#FFFFF2',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        borderColor: '#ECE3D4',
-        borderTopWidth: 0.5,
+        borderColor: '#E7E7E1',
+        borderTopWidth: 1,
         height: 60,
         // paddingHorizontal: 20,
         // gap: 10,

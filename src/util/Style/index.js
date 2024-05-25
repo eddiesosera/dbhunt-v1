@@ -8,6 +8,9 @@ export const GlobalStyle = StyleSheet.create({
         paddingVertical: 18,
         paddingHorizontal: 15,
         width: '100%',
+        flexDirection: 'row',
+        gap: 10,
+        justifyContent: 'center',
         // fontFamily: 'Mona-Sans Wide Bold'
     },
     PrimaryFillButtonText: {
@@ -24,6 +27,8 @@ export const GlobalStyle = StyleSheet.create({
         paddingVertical: 18,
         paddingHorizontal: 15,
         width: '100%',
+        flexDirection: 'row',
+        gap: 5,
         // fontFamily: 'Mona-Sans Wide Bold'
     },
     LightOutlineButtonText: {

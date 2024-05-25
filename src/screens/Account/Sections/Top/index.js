@@ -42,7 +42,7 @@ export const TopSection = () => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#FFFFF2',
+        // backgroundColor: '#FFFFF2',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
