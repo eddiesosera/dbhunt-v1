@@ -6,8 +6,8 @@ import { CustomTab } from './customTab';
 import { createStackNavigator } from '@react-navigation/stack';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Context } from '../Global';
-import { auth } from '../Auth';
 import { NavigationContainer } from '@react-navigation/native';
+import { config } from '../Services/firebase';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -16,7 +16,7 @@ export const MainNavigation = () => {
     const { userEmail, setUserEmail } = useContext(Context);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(config, (user) => {
             if (user) {
                 setLoggedIn(true)
                 console.log("User logged in: " + user.email);

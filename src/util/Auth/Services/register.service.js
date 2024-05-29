@@ -1,9 +1,9 @@
 import { createUserWithEmailAndPassword } from "firebase/auth"
-import { auth } from ".."
+import { config } from "../../Services/firebase";
 
 export const Register = (email, password, callBackFunction) => {
 
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(config, email, password)
         .then((userCredential) => {
             // After user is cretaed do the following
 

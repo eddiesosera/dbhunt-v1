@@ -5,8 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { LoadFonts } from './assets/fonts';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './src/util/Auth';
+// import { auth } from './src/util/Auth';
 import { GlobalProvider } from './src/util/Global';
+import { config } from './src/util/Services/firebase';
 
 const App = () => {
 
@@ -21,7 +22,7 @@ const App = () => {
 
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(config, (user) => {
       if (user) {
         setLoggedIn(true)
         console.log("User logged in: " + user.email);
