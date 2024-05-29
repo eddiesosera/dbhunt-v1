@@ -3,11 +3,15 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { ModalElement } from '../../elements/Modal';
 import MapsExample from '../Play/Maps';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { getAllItems, getItem } from '../../util/Services/Data';
+import { deleteItem, getAllItems, getItem } from '../../util/Services/Data';
 
 export const TournamentsScreen = () => {
+    // General UI variables
     const navigate = useNavigation();
     const [modalVisible, setModalVisible] = useState(false);
+    const [isDeleteWarning, setIsDeleteWarning] = useState(false);
+    const [selected, setSelected] = useState()
+    // General UI functinos
     const updateModalState = (state) => {
         setModalVisible(state)
     };
@@ -30,7 +34,17 @@ export const TournamentsScreen = () => {
         } else {
             console.log("Single doc not found" + userHunt)
         }
+    };
+    const handleDelete = async () => {
+        var id_demo = "e16pEtswL1ffnMUbCkou"
+        var success = await deleteItem("hunts", id_demo)
 
+        if (success) {
+            setIsDeleteWarning(false)
+        } else {
+            // setIsDeleteWarning(false)
+            console.log("Failed delete")
+        }
     }
 
     // Lifecycles:
@@ -66,10 +80,22 @@ export const TournamentsScreen = () => {
             <FlatList
                 data={hunts}
                 renderItem={({ item }) =>
-                (<TouchableOpacity style={styles.card}>
-                    <Text>{item.title}</Text>
-                </TouchableOpacity>)}
-
+                (
+                    isDeleteWarning ? (
+                        <View style={styles.card}>
+                            <TouchableOpacity style={styles.card} onPress={() => setIsDeleteWarning(false)}>
+                                <Text style={{ color: '#333' }}>Cancel</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.card} onPress={handleDelete}>
+                                <Text style={{ color: 'red' }}>Delete</Text>
+                            </TouchableOpacity>
+                        </View>
+                    ) : (
+                        <TouchableOpacity style={styles.card} onPress={() => setIsDeleteWarning(true)}>
+                            <Text>{item.title}</Text>
+                        </TouchableOpacity>
+                    )
+                )}
                 // Render when array is empty
                 ListEmptyComponent={() => (
                     <TouchableOpacity>

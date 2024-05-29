@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc, getDocs, query, updateDoc, writeBatch } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, updateDoc, writeBatch } from "firebase/firestore";
 import { db } from "../firebase";
 
 // Get a new write batch
@@ -61,14 +61,25 @@ export const updateItem = async (collectionName, id, body) => {
 
     try {
         const docRef = doc(db, collectionName, id);
-        const updatedDoc = await updateDoc(docRef, body);
+        var updatedDoc = await updateDoc(docRef, body);
 
         return true
 
     } catch (error) {
+        console.log(error)
         return false
     }
 }
 
 // Delete Single Document
+export const deleteItem = async (collectionName, id,) => {
+    try {
+        var deletedItem = await deleteDoc(doc(db, collectionName, id));
+        console.log(deletedItem)
 
+        return true
+    } catch (error) {
+        console.log(error)
+        return false
+    }
+}
