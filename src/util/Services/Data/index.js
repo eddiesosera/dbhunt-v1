@@ -1,5 +1,8 @@
-import { addDoc, collection, getDocs, query } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, getDocs, query, writeBatch } from "firebase/firestore";
 import { db } from "../firebase";
+
+// Get a new write batch
+const batch = writeBatch(db);
 
 // Create Item
 export const createItem = async (collectionName, item) => {
@@ -33,3 +36,27 @@ export const getAllItems = async (collectionName, sortBy, sortOrder, limit) => {
         console.error("Error getting documents: ", e);
     }
 }
+
+// Get Single Document
+export const getItem = async (collectionName, id) => {
+    try {
+        const docRef = doc(db, collectionName, id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            return docSnap.data(); // Directly return the document data
+        } else {
+            console.log("No such document!");
+            return null; // Return null if the document does not exist
+        }
+    } catch (error) {
+        console.error("Error getting document: ", error);
+        throw error; // Optionally rethrow the error to handle it elsewhere
+    }
+};
+
+// Update Document
+
+// Delete Single Document
+

@@ -3,29 +3,41 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { ModalElement } from '../../elements/Modal';
 import MapsExample from '../Play/Maps';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { getAllItems } from '../../util/Services/Data';
+import { getAllItems, getItem } from '../../util/Services/Data';
 
 export const TournamentsScreen = () => {
     const navigate = useNavigation();
     const [modalVisible, setModalVisible] = useState(false);
-
     const updateModalState = (state) => {
         setModalVisible(state)
     };
 
-    const [hunts, setHunts] = useState([])
-
-    useEffect(() => {
-        handleGettingOfData()
-    }, []);
-
+    // Data variables:
+    const [hunts, setHunts] = useState([]);
+    const [userHunt, setUserHunt] = useState({});
+    // Data functions:
     const handleGettingOfData = async () => {
         var allData = await getAllItems("hunts");
         setHunts(allData)
         console.log("All Items: " + JSON.stringify(hunts))
-        // return handleGettingOfData
+        console.log("ID: " + hunts[0].id)
+
+        // If all documents are loaded:
+        if (hunts) {
+            var singleData = await getItem("hunts", hunts[0].id);
+            setUserHunt(singleData);
+            console.log("User's hunts" + userHunt)
+        } else {
+            console.log("Single doc not found" + userHunt)
+        }
+
     }
 
+    // Lifecycles:
+    useEffect(() => {
+        handleGettingOfData();
+        // handleSingleData();
+    }, []);
     useFocusEffect(useCallback(() => {
         // handleGettingOfData()
         return () => {
@@ -72,13 +84,19 @@ export const TournamentsScreen = () => {
             //     <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
             // }
             />
+            <Text>
+                No tasks yet
+                {
+                    userHunt.title
+                }
+            </Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     centeredView: {
-        flex: 1,
+        // flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 22,
