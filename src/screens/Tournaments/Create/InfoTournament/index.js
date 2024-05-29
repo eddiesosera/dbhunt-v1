@@ -1,7 +1,7 @@
 import { StyleSheet, Switch, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { createItem } from '../../../../util/Services/Data'
+import { createItem, updateItem } from '../../../../util/Services/Data'
 
 export const InfoTournamentScreen = () => {
     const [title, setTitle] = useState('')
@@ -19,7 +19,19 @@ export const InfoTournamentScreen = () => {
         if (success) {
             navigate.goBack() //if it wass successful, go back home
         } else {
+            console.log("Failed to create doc")
+        }
+    };
+    const handleUpdate = async () => {
+        var updateBody = { title, description };
+        var id_demo = "e16pEtswL1ffnMUbCkou"
+        var success = await updateItem("hunts", id_demo, updateBody);
 
+        if (success) {
+            navigate.goBack() //if it wass successful, go back home
+            console.log("Updated: " + success)
+        } else {
+            console.log("Failed to update doc")
         }
     }
 
@@ -58,6 +70,29 @@ export const InfoTournamentScreen = () => {
 
             <TouchableOpacity style={styles.button} onPress={handleCreation}>
                 <Text style={styles.buttonText}>Create Hunt</Text>
+            </TouchableOpacity>
+
+            <Text>
+                UPDATE: SECTION
+            </Text>
+
+            <TextInput
+                style={styles.inputField}
+                placeholder="Hunt Title"
+                onChangeText={newText => setTitle(newText)}
+                defaultValue={title}
+            />
+            <TextInput
+                multiline
+                numberOfLines={4}
+                style={styles.inputField}
+                placeholder="Description of Hunt"
+                onChangeText={newText => setDescription(newText)}
+                defaultValue={description}
+            />
+
+            <TouchableOpacity style={styles.button} onPress={handleUpdate}>
+                <Text style={styles.buttonText}>Update Hunt</Text>
             </TouchableOpacity>
 
         </View>
