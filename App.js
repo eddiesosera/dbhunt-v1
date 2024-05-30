@@ -8,6 +8,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 // import { auth } from './src/util/Auth';
 import { GlobalProvider } from './src/util/Global';
 import { config } from './src/util/Services/firebase';
+import { StatusBar } from 'expo-status-bar';
 
 const App = () => {
 
@@ -38,6 +39,7 @@ const App = () => {
 
   return (
     <GlobalProvider>
+      {/* <StatusBar translucent={true} /> */}
       {isFontLoaded ?
         (<GestureHandlerRootView style={{ flex: 1, backgroundColor: '#01010' }}>
           <MainNavigation />

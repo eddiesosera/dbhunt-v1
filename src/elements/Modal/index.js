@@ -13,7 +13,13 @@ export const ModalElement = ({ children, isOpened, setModalVisible }) => {
 
     return (
         <Modal
-            animationType="fade" visible={isOpened} hasBackdrop={true} onBackdropPress={bdPress} backdropColor="red"
+            animationType="fade"
+            visible={isOpened}
+            // hasBackdrop={true}
+            backdropColor="#333"
+            backdropOpacity={0.5}
+            onBackdropPress={bdPress}
+            style={styles.container}
             onRequestClose={() => { setModalVisible(!isOpened); }}>
             <View style={styles.centeredView}>
                 <View style={styles.modalView}>
@@ -25,20 +31,25 @@ export const ModalElement = ({ children, isOpened, setModalVisible }) => {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#0c0c0c2e',
+        width: '100.05%',
+        left: -20,
+        top: -40
+    },
     centeredView: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 22,
-        // width: 300,
-        // backgroundColor: 'red'
+        width: '100%',
+        padding: 40
     },
     modalView: {
-        margin: 20,
         backgroundColor: 'white',
-        borderRadius: 20,
-        padding: 35,
+        borderRadius: 10,
         alignItems: 'center',
+        width: '100%',
         // shadowColor: '#000',
         // shadowOffset: {
         //     width: 0,

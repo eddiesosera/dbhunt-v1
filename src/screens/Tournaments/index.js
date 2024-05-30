@@ -4,6 +4,10 @@ import { ModalElement } from '../../elements/Modal';
 import MapsExample from '../Play/Maps';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { deleteItem, getAllItems, getItem } from '../../util/Services/Data';
+import { ModalStyle } from '../../util/Style/Modal';
+import { StatusBar } from 'expo-status-bar';
+import { HuntCard } from './Sections/Card';
+import { Table } from './Sections/Table';
 
 export const TournamentsScreen = () => {
     // General UI variables
@@ -60,84 +64,83 @@ export const TournamentsScreen = () => {
     }, []))
 
     return (
-        <View style={styles.centeredView}>
+        <View style={styles.container}>
 
-            <ModalElement isOpened={modalVisible} setModalVisible={updateModalState}>
-                <Text>Extra content</Text>
-                <TouchableOpacity onPress={() => {
-                    navigate.navigate("CreateTournamentsStack")
-                }}>
-                    <Text>Create</Text>
-                </TouchableOpacity>
-            </ModalElement>
+            <View style={styles.topWrap}>
+                <View style={styles.labelsWrap}>
+                    <Text style={styles.labelTop}>
+                        Hunts
+                    </Text>
+                    <Text style={styles.labelBtm}>
+                        Current
+                    </Text>
+                </View>
+                <HuntCard />
+            </View>
 
-            <Pressable
-                style={[styles.button, styles.buttonOpen]}
-                onPress={() => { setModalVisible(true); }}>
-                <Text style={styles.textStyle}>Show Modal: {modalVisible}</Text>
-            </Pressable>
-
-            <FlatList
-                data={hunts}
-                renderItem={({ item }) =>
-                (
-                    isDeleteWarning ? (
-                        <View style={styles.card}>
-                            <TouchableOpacity style={styles.card} onPress={() => setIsDeleteWarning(false)}>
-                                <Text style={{ color: '#333' }}>Cancel</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.card} onPress={handleDelete}>
-                                <Text style={{ color: 'red' }}>Delete</Text>
-                            </TouchableOpacity>
-                        </View>
-                    ) : (
-                        <TouchableOpacity style={styles.card} onPress={() => setIsDeleteWarning(true)}>
-                            <Text>{item.title}</Text>
-                        </TouchableOpacity>
-                    )
-                )}
-                // Render when array is empty
-                ListEmptyComponent={() => (
-                    <TouchableOpacity>
-                        <Text>
-                            No tasks yet
-                        </Text>
-                    </TouchableOpacity>
-                )}
-                keyExtractor={item => item.id}
-            // ItemSeparatorComponent={() => <View style={{ height: 10, width: 10 }} />}
-            // refreshControl={
-            //     <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-            // }
-            />
-            <Text>
-                No tasks yet
-                {
-                    userHunt.title
-                }
-            </Text>
+            <View style={styles.btmWrap}>
+                <View style={styles.btmLabelsWrap}>
+                    <Text style={styles.btmLabelL}>Nearby</Text>
+            <View style={styles.btmLabelR}>
+                    <Text  style={styles.btmLabelRText}>1</Text>
+                    </View>
+                </View>
+                <Table />
+            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    centeredView: {
-        // flex: 1,
-        justifyContent: 'center',
+    container: {
+        flex: 1,
+        width: '100%',
+        marginTop: 22
+    },
+    topWrap: {
+        marginTop: 20,
+        paddingHorizontal: 20,
+        width: '100%',
+    },
+    labelsWrap: {
+        width: '100%',
         alignItems: 'center',
-        marginTop: 22,
+        gap: 20,
+        marginBottom:10,
     },
-    buttonOpen: {
-        backgroundColor: '#F194FF',
-        marginTop: 50,
+    labelTop: {
+        fontFamily: 'Saiyans Sans',
+        fontSize: 48
     },
-    textStyle: {
-        color: 'white',
-        fontWeight: 'bold',
-        textAlign: 'center',
+    labelBtm: {
+        fontFamily: 'Mona-Sans Wide Medium',
+        fontSize: 16
     },
-    modalText: {
-        marginBottom: 15,
-        textAlign: 'center',
+
+    btmWrap: {
+        marginTop:20,
+        padding: 20,
+        gap:20
     },
+    btmLabelsWrap: {
+flexDirection:'row',
+justifyContent:'space-between',
+alignItems:'center',
+    },
+    btmLabelL:{
+        fontFamily: 'Mona-Sans Wide SemiBold',
+    },
+    btmLabelR:{
+backgroundColor:'#ddd',
+borderRadius:30,
+height:20,
+width:20,
+justifyContent:'center',
+alignItems:'center'
+    },
+    btmLabelRText:{
+        color:'#111',
+        fontFamily: 'Mona-Sans Wide SemiBold',
+        fontSize:11
+            },
 })
