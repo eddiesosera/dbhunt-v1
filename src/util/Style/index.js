@@ -2,19 +2,18 @@ import { StyleSheet } from "react-native";
 
 export const GlobalStyle = StyleSheet.create({
     PrimaryFillButton: {
-        backgroundColor: '#3D58F2',
+        backgroundColor: '#FFB10A',
         borderRadius: 8,
         alignItems: 'center',
         paddingVertical: 18,
         paddingHorizontal: 15,
-        width: '100%',
+        // width: '100%',
         flexDirection: 'row',
         gap: 10,
         justifyContent: 'center',
-        // fontFamily: 'Mona-Sans Wide Bold'
     },
     PrimaryFillButtonText: {
-        color: '#F4F1ED',
+        color: '#141310',
         fontSize: 16,
         fontFamily: 'Mona-Sans Wide Bold'
     },
@@ -36,4 +35,19 @@ export const GlobalStyle = StyleSheet.create({
         fontSize: 16,
         fontFamily: 'Mona-Sans Wide Bold'
     },
+    PrimaryIconButton: {
+        borderRadius: 10,
+        backgroundColor: '#FFB10A',
+        alignItems: 'center',
+        width: 60,
+        height: 60,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        gap: 10,
+        shadowColor: '#171717',
+        shadowOffset: { width: 2, height: -5 },
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        elevation: 4
+    }
 })

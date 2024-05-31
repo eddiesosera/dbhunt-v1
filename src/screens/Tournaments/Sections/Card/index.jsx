@@ -1,21 +1,23 @@
-import { Image, StyleSheet, Text,TouchableOpacity, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react';
 
 import HuntBg from '../../../../../assets/img/background/hunt_bg.png';
 import img1 from '../../../../../assets/img/characters/bardock.png';
-import { Row } from '../Table/Row';
+import { Row } from '../../Leaderboard/Table/Row';
 
-export const HuntCard = ({ region, }) => {
+export const HuntCard = ({ region, customStyle, isMinimized }) => {
+    let minHeight = 150;
     const userLoggedIn = {
         id: 4,
         avatar: img1,
         username: 'Huey',
         collected: ["", "", "", "",]
-    }
+    };
+
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={[styles.container, { height: isMinimized ? minHeight : 450, justifyContent: isMinimized ? 'center' : '' }]}>
             <Image source={HuntBg} style={styles.bgImage} />
-            <View style={styles.deetsWrap}>
+            <View style={[styles.deetsWrap, { marginTop: isMinimized ? 0 : 40 }]}>
                 <View style={styles.deetsTitleWrap}>
                     <Text style={styles.deetsTitleL}>
                         Pretoria {region}
@@ -29,13 +31,18 @@ export const HuntCard = ({ region, }) => {
                 </Text>
             </View>
 
-            <View style={{ padding: 20, position: 'absolute', bottom: 0 }}>
-                <Row
-                    img={userLoggedIn.avatar}
-                    name={userLoggedIn.username}
-                    collected={userLoggedIn.collected.length}
-                    rank={userLoggedIn.id}
-                />
+            <View style={{ padding: 20, position: 'absolute', bottom: 0, height: isMinimized && 0 }}>
+                {
+                    !isMinimized && (
+                        <Row
+                            img={userLoggedIn.avatar}
+                            name={userLoggedIn.username}
+                            collected={userLoggedIn.collected.length}
+                            rank={userLoggedIn.id}
+                        />
+                    )
+                }
+
             </View>
         </TouchableOpacity>
     )
@@ -45,20 +52,21 @@ const styles = StyleSheet.create({
     container: {
         borderRadius: 10,
         overflow: 'hidden',
-        height: 300,
+        // height: 450,
         // padding: 20,
-        width: '100%'
+        width: '100%',
+        alignItems: 'center',
     },
     bgImage: {
         width: '100%',
-        height: 300,
+        height: 450,
         position: 'absolute',
         borderRadius: 10,
         overflow: 'hidden',
     },
     deetsWrap: {
         width: '100%',
-        marginTop: 40,
+        // marginTop: 40,
         alignItems: 'center',
         gap: 5,
     },
@@ -82,7 +90,7 @@ const styles = StyleSheet.create({
     },
     deetsTimeLeft: {
         fontFamily: 'Mona-Sans Wide',
-        color: 'yellow',
+        color: '#FFD67D',
         fontSize: 12,
     }
 })

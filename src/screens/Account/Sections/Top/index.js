@@ -4,6 +4,7 @@ import Logo from '../../../../../assets/img/logo/app_logo_bnw.png'
 import { Ionicons } from '@expo/vector-icons';
 import { ModalElement } from '../../../../elements/Modal';
 import { useNavigation } from '@react-navigation/native';
+import { ModalStyle } from '../../../../util/Style/Modal';
 
 export const TopSection = () => {
 
@@ -29,11 +30,11 @@ export const TopSection = () => {
             </TouchableOpacity>
 
             <ModalElement isOpened={modalVisible} setModalVisible={updateModalState}>
-                <TouchableOpacity onPress={viewModal}>
-                    <Text>Edit</Text>
+                <TouchableOpacity onPress={viewModal} style={ModalStyle.ModalButton}>
+                    <Text style={ModalStyle.ModalButtonText}>Edit</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={goToScreen}>
-                    <Text>Logout</Text>
+                <TouchableOpacity onPress={goToScreen} style={ModalStyle.ModalButton}>
+                    <Text style={ModalStyle.ModalButtonText}>Logout</Text>
                 </TouchableOpacity>
             </ModalElement>
         </View>

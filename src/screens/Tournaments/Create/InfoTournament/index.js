@@ -1,14 +1,17 @@
-import { StyleSheet, Switch, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, Switch, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { createItem, updateItem } from '../../../../util/Services/Data'
+import DateTimePicker from 'react-native-ui-datepicker'
+import dayjs from 'dayjs'
 
 export const InfoTournamentScreen = () => {
     const [title, setTitle] = useState('')
     const [region, setRegion] = useState('')
     const [reward, setReward] = useState('Super Saiyan 1')
-    const [startDate, setStartDate] = useState('')
-    const [endDate, setEndDate] = useState('')
+    const [date, setDate] = useState(dayjs());
+    const [startDate, setStartDate] = useState(dayjs())
+    const [endDate, setEndDate] = useState(dayjs())
     const [description, setDescription] = useState('')
     const navigate = useNavigation()
 
@@ -36,7 +39,7 @@ export const InfoTournamentScreen = () => {
     }
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             <TextInput
                 style={styles.inputField}
@@ -51,6 +54,13 @@ export const InfoTournamentScreen = () => {
                 onChangeText={newText => setStartDate(newText)}
                 defaultValue={startDate}
             />
+
+            {/* <DateTimePicker
+                mode="single"
+                date={startDate}
+                onChange={(params) => setStartDate(params.date)}
+                initialView="day"
+            /> */}
 
             <TextInput
                 style={styles.inputField}
@@ -95,7 +105,7 @@ export const InfoTournamentScreen = () => {
                 <Text style={styles.buttonText}>Update Hunt</Text>
             </TouchableOpacity>
 
-        </View>
+        </ScrollView>
     )
 }
 

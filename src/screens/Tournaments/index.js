@@ -1,24 +1,33 @@
-import { Alert, Modal, StyleSheet, Text, Pressable, View, Touchable, TouchableOpacity, FlatList } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import React, { useCallback, useEffect, useState } from 'react';
-import { ModalElement } from '../../elements/Modal';
-import MapsExample from '../Play/Maps';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { deleteItem, getAllItems, getItem } from '../../util/Services/Data';
-import { ModalStyle } from '../../util/Style/Modal';
-import { StatusBar } from 'expo-status-bar';
 import { HuntCard } from './Sections/Card';
-import { Table } from './Sections/Table';
+import { ListOfHunts } from './Sections/List';
+import { HuntsDummyData } from '../../util/Services/Data/Dummy/huntsDummy';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Ionicons } from '@expo/vector-icons';
+import { GlobalStyle } from '../../util/Style';
+import { TopBar } from '../../elements/TopBar';
 
 export const TournamentsScreen = () => {
     // General UI variables
     const navigate = useNavigation();
     const [modalVisible, setModalVisible] = useState(false);
     const [isDeleteWarning, setIsDeleteWarning] = useState(false);
-    const [selected, setSelected] = useState()
+    const [selected, setSelected] = useState();
+    const [isTableExpanded, setIsTableExpanded] = useState(false);
     // General UI functinos
     const updateModalState = (state) => {
         setModalVisible(state)
     };
+    const expandTable = () => {
+        if (isTableExpanded) {
+            setIsTableExpanded(!isTableExpanded)
+        } else {
+            setIsTableExpanded(!isTableExpanded)
+        }
+    }
 
     // Data variables:
     const [hunts, setHunts] = useState([]);
@@ -49,7 +58,10 @@ export const TournamentsScreen = () => {
             // setIsDeleteWarning(false)
             console.log("Failed delete")
         }
-    }
+    };
+    const openModal = (id) => {
+
+    };
 
     // Lifecycles:
     useEffect(() => {
@@ -61,32 +73,35 @@ export const TournamentsScreen = () => {
         return () => {
 
         }
-    }, []))
+    }, []));
 
     return (
         <View style={styles.container}>
+            <TopBar showOptions={true} />
 
-            <View style={styles.topWrap}>
-                <View style={styles.labelsWrap}>
-                    <Text style={styles.labelTop}>
-                        Hunts
-                    </Text>
-                    <Text style={styles.labelBtm}>
-                        Current
-                    </Text>
-                </View>
-                <HuntCard />
-            </View>
-
-            <View style={styles.btmWrap}>
-                <View style={styles.btmLabelsWrap}>
-                    <Text style={styles.btmLabelL}>Nearby</Text>
-            <View style={styles.btmLabelR}>
-                    <Text  style={styles.btmLabelRText}>1</Text>
-                    </View>
-                </View>
-                <Table />
-            </View>
+            <HuntCard isMinimized={isTableExpanded} />
+            <ListOfHunts
+                hunts={HuntsDummyData}
+                header={
+                    (<View style={styles.listHeaderWrap}>
+                        <View style={styles.listHeaderLeftWrap}>
+                            <Text style={styles.listHeader}>Nearby Hunts</Text>
+                            <View style={styles.numberOfHuntsWrap}>
+                                <Text style={styles.numberOfHuntsText}> {HuntsDummyData?.length} </Text>
+                            </View>
+                        </View>
+                        <TouchableOpacity onPress={expandTable}>
+                            <Ionicons name="chevron-expand" size={24} color="black" />
+                        </TouchableOpacity>
+                    </View>)
+                }
+                cardPadding={15}
+                customStyle={{ gap: 20, marginTop: 40, paddingHorizontal: 0 }}
+                getModalId={openModal}
+            />
+            <TouchableOpacity style={[GlobalStyle.PrimaryIconButton, styles.addButton]}>
+                <Ionicons name="add-outline" size={30} color="black" />
+            </TouchableOpacity>
         </View>
     )
 }
@@ -94,53 +109,44 @@ export const TournamentsScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: '100%',
-        marginTop: 22
+        // gap: 40,
+        // marginTop: 22,
+        padding: 10,
+        paddingTop: 0,
+        paddingBottom: 0,
     },
-    topWrap: {
-        marginTop: 20,
-        paddingHorizontal: 20,
-        width: '100%',
-    },
-    labelsWrap: {
-        width: '100%',
+    listHeaderWrap: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        gap: 10,
         alignItems: 'center',
-        gap: 20,
-        marginBottom:10,
+        paddingRight: 5,
     },
-    labelTop: {
-        fontFamily: 'Saiyans Sans',
-        fontSize: 48
+    listHeaderLeftWrap: {
+        flexDirection: 'row',
+        gap: 10,
+        alignItems: 'center',
     },
-    labelBtm: {
+    listHeader: {
         fontFamily: 'Mona-Sans Wide Medium',
-        fontSize: 16
+        fontSize: 16,
     },
-
-    btmWrap: {
-        marginTop:20,
-        padding: 20,
-        gap:20
+    numberOfHuntsWrap: {
+        borderRadius: 30,
+        backgroundColor: '#ddd',
+        width: 24,
+        height: 24,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    btmLabelsWrap: {
-flexDirection:'row',
-justifyContent:'space-between',
-alignItems:'center',
+    numberOfHuntsText: {
+        fontSize: 11,
+        fontFamily: 'Mona-Sans Wide Medium'
     },
-    btmLabelL:{
-        fontFamily: 'Mona-Sans Wide SemiBold',
-    },
-    btmLabelR:{
-backgroundColor:'#ddd',
-borderRadius:30,
-height:20,
-width:20,
-justifyContent:'center',
-alignItems:'center'
-    },
-    btmLabelRText:{
-        color:'#111',
-        fontFamily: 'Mona-Sans Wide SemiBold',
-        fontSize:11
-            },
+    addButton: {
+        position: 'absolute',
+        right: 10,
+        bottom: 15,
+        zIndex: 1,
+    }
 })

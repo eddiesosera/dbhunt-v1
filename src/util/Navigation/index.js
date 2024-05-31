@@ -14,6 +14,7 @@ const Stack = createStackNavigator();
 
 export const MainNavigation = () => {
     const { userEmail, setUserEmail } = useContext(Context);
+    const { loggedIn, setLoggedIn } = useContext(Context);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(config, (user) => {

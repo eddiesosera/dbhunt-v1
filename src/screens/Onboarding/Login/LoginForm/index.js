@@ -14,7 +14,7 @@ export const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(true);
 
     const goToScreen = () => {
-        navigation.navigate('Register', { screen: 'OnboardinStack' });
+        navigation.navigate('Account', { screen: 'OnboardinStack' });
     };
 
     useEffect(() => {

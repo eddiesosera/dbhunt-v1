@@ -1,12 +1,12 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react';
-import { Row } from './Row';
 
 import img1 from '../../../../../assets/img/characters/bardock.png';
 import img2 from '../../../../../assets/img/characters/bardock.png';
 import img3 from '../../../../../assets/img/characters/bardock.png';
 import img4 from '../../../../../assets/img/characters/bardock.png';
 import img5 from '../../../../../assets/img/characters/bardock.png';
+import { Row } from './Row';
 
 
 export const Table = (usersInHunt) => {
@@ -70,6 +70,6 @@ const styles = StyleSheet.create({
 
     },
     rankList: {
-        // padding: 20
+
     }
 })
