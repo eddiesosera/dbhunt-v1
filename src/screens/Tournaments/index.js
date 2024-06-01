@@ -28,6 +28,13 @@ export const TournamentsScreen = () => {
             setIsTableExpanded(!isTableExpanded)
         }
     }
+    const goToCreate = () => {
+        navigate.navigate("CreateTournamentsStack")
+    }
+    const onListScroll = (state) => {
+        setIsTableExpanded(state)
+        console.log("Scroll state: " + state)
+    }
 
     // Data variables:
     const [hunts, setHunts] = useState([]);
@@ -67,7 +74,7 @@ export const TournamentsScreen = () => {
     useEffect(() => {
         handleGettingOfData();
         // handleSingleData();
-    }, []);
+    }, [isTableExpanded]);
     useFocusEffect(useCallback(() => {
         // handleGettingOfData()
         return () => {
@@ -97,9 +104,10 @@ export const TournamentsScreen = () => {
                 }
                 cardPadding={15}
                 customStyle={{ gap: 20, marginTop: 40, paddingHorizontal: 0 }}
+                onScroll={onListScroll}
                 getModalId={openModal}
             />
-            <TouchableOpacity style={[GlobalStyle.PrimaryIconButton, styles.addButton]}>
+            <TouchableOpacity style={[GlobalStyle.PrimaryIconButton, styles.addButton]} onPress={goToCreate}>
                 <Ionicons name="add-outline" size={30} color="black" />
             </TouchableOpacity>
         </View>

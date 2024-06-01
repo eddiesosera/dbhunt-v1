@@ -1,11 +1,28 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { HuntRowCard } from '../Card/HuntRowCard'
 
-export const ListOfHunts = ({ hunts, getModalId, header, cardPadding, customStyle }) => {
+export const ListOfHunts = ({ hunts, getModalId, header, cardPadding, customStyle, onScroll }) => {
+    const currentOffset = useRef(0);
+    const handleScroll = async (event) => {
+        // var currentOffset = 0;
+        const newOffset = event.nativeEvent.contentOffset.y;
+        const direction = newOffset > currentOffset.current ? 'down' : 'up';
+        currentOffset.current = newOffset;
+        // console.log(direction);
+
+        // If I'm scrolling up the table should collapse and vice veresa
+        if (direction === "down") {
+            onScroll(true)
+        } else if (direction == "up") {
+            onScroll(false)
+        }
+    };
+
     useEffect(() => {
-        // console.log(hunts)
-    }, [])
+        // handleScroll()
+    }, []);
+
     return (
         <View style={[styles.container, customStyle]}>
             {header}
@@ -22,6 +39,8 @@ export const ListOfHunts = ({ hunts, getModalId, header, cardPadding, customStyl
                     />)}
                 ItemSeparatorComponent={() => <View style={{ height: 5, width: 10 }} />}
                 showsVerticalScrollIndicator={false}
+                onScrollEndDrag={handleScroll}
+            // onScrollEndDrag={() => alert("Scroll Ended")}
             // horizontal={true}
             />
         </View>

@@ -1,6 +1,8 @@
 import { StyleSheet } from "react-native";
 
 export const GlobalStyle = StyleSheet.create({
+
+    // BUTTONS
     PrimaryFillButton: {
         backgroundColor: '#FFB10A',
         borderRadius: 8,
@@ -49,5 +51,19 @@ export const GlobalStyle = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 5,
         elevation: 4
+    },
+
+    // INPUT FIELDS
+    inputField: {
+        padding: 15,
+        fontSize: 14,
+        borderWidth: 1,
+        borderColor: '#D8D2C9',
+        borderRadius: 8,
+        width: '100%',
+        fontFamily: 'Mona-Sans Wide',
+    },
+    inputText: {
+        fontFamily: 'Mona-Sans Wide',
     }
 })

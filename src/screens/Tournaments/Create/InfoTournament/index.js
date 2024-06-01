@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { createItem, updateItem } from '../../../../util/Services/Data'
 import DateTimePicker from 'react-native-ui-datepicker'
 import dayjs from 'dayjs'
+import { GlobalStyle } from '../../../../util/Style'
 
 export const InfoTournamentScreen = () => {
     const [title, setTitle] = useState('')
@@ -42,7 +43,7 @@ export const InfoTournamentScreen = () => {
         <ScrollView style={styles.container}>
 
             <TextInput
-                style={styles.inputField}
+                style={[styles.inputField, GlobalStyle.inputField]}
                 placeholder="Hunt Title"
                 onChangeText={newText => setTitle(newText)}
                 defaultValue={title}
