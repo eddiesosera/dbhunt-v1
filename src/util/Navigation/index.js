@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 import React, { useContext, useEffect, useState } from 'react';
-import { AccountStack, OnboardingStack, PlayStack, TournamentsStack } from '../StackScreens';
+import { AccountStack, OnboardingStack, PlayStack, Tournament, TournamentsStack } from '../StackScreens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { CustomTab } from './customTab';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -34,15 +34,17 @@ export const MainNavigation = () => {
             {
                 userEmail !== ""
                     ? (
-                        <Stack.Navigator screenOptions={{ headerShown: false }}>
+                        <Stack.Navigator screenOptions={{ headerShown: false }} options={{ tabBarVisible: false }}>
                             <Stack.Screen name="Tabs" component={TabNavigate} />
                             <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
+                            <Stack.Screen name="TournamentStack" component={Tournament} />
                         </Stack.Navigator>
                     )
                     : (
-                        <Stack.Navigator screenOptions={{ headerShown: false }}>
+                        <Stack.Navigator screenOptions={{ headerShown: false }} options={{ tabBarVisible: false }}>
                             <Stack.Screen name="Tabs" component={TabNavigate} />
                             <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
+                            <Stack.Screen name="TournamentStack" component={Tournament} />
                         </Stack.Navigator>
                     )
             }

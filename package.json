@@ -12,6 +12,7 @@
     "@ernesto_tech/expo-gl-image-filters": "^0.6.0",
     "@expo/vector-icons": "^14.0.1",
     "@gorhom/bottom-sheet": "^4.6.1",
+    "@rafaelgomes/react-native-element-dropdown": "^2.10.5",
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/native": "^6.1.17",

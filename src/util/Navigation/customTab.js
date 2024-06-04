@@ -69,19 +69,20 @@ export const CustomTab = ({ state, descriptors, navigation }) => {
                             testID={options.tabBarTestID}
                             onPress={onPress}
                             onLongPress={onLongPress}
-                            style={styles.navItem}
+                            style={[styles.navItem]}
                             key={index}
                         >
 
                             <Ionicons name={iconName} size={28} color={isFocused ? '#060612' : '#939398'} />
 
                             {/* Screen name conditional rendering if page is active */}
-                            {/* <Text style={[styles.navText, {
+                            <Text style={[styles.navText, {
                                 color: isFocused ? '#060612' : '#C1C3CC',
-                                fontWeight: isFocused ? 'bold' : ''
+                                // fontWeight: isFocused ? 'bold' : 'bold',
+                                fontFamily: 'Mona-Sans Wide SemiBold'
                             }]}>
                                 {label}
-                            </Text> */}
+                            </Text>
 
                         </Pressable>
                     );
@@ -93,37 +94,23 @@ export const CustomTab = ({ state, descriptors, navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#FFFFF2',
+        backgroundColor: '#FFFFFF',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
         borderColor: '#E7E7E1',
         borderTopWidth: 1,
-        height: 60,
-        // paddingHorizontal: 20,
-        // gap: 10,
+        height: 75,
     },
     animateItem: {
         flex: 1,
-        // width: '100%',
-        // flexDirection: 'column',
-        // alignItems: 'center',
-        // justifyContent: 'center',
-        // gap: 2,
     },
     navItem: {
-        // flex: 1,
-        // width: '100%',
-        // flexDirection: 'column',
-        // alignItems: 'center',
-        // justifyContent: 'center',
         gap: 10,
         alignItems: 'center'
     },
     navText: {
         marginTop: -7,
         fontSize: 10,
-        // color: '#000'
-        // fontFamily: "Jakarta",
     }
 })

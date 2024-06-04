@@ -29,7 +29,7 @@ export const TournamentsScreen = () => {
         }
     }
     const goToCreate = () => {
-        navigate.navigate("CreateTournamentsStack")
+        navigate.navigate("TournamentStack")
     }
     const onListScroll = (state) => {
         setIsTableExpanded(state)

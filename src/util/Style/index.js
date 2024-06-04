@@ -17,7 +17,7 @@ export const GlobalStyle = StyleSheet.create({
     PrimaryFillButtonText: {
         color: '#141310',
         fontSize: 16,
-        fontFamily: 'Mona-Sans Wide Bold'
+        fontFamily: 'Mona-Sans Wide ExtraBold'
     },
     LightOutlineButton: {
         // backgroundColor: '#3D58F2',
@@ -27,8 +27,9 @@ export const GlobalStyle = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 18,
         paddingHorizontal: 15,
-        width: '100%',
+        // width: '100%',
         flexDirection: 'row',
+        justifyContent: 'center',
         gap: 5,
         // fontFamily: 'Mona-Sans Wide Bold'
     },
@@ -55,7 +56,7 @@ export const GlobalStyle = StyleSheet.create({
 
     // INPUT FIELDS
     inputField: {
-        padding: 15,
+        padding: 12,
         fontSize: 14,
         borderWidth: 1,
         borderColor: '#D8D2C9',

@@ -33,11 +33,21 @@ export const TournamentsStack = () => {
       <Stack.Screen name="TournamentsStack" component={TournamentsScreen} />
       <Stack.Screen name="Leaderboard" component={LeaderboardScreen} />
       <Stack.Screen name="TournamentWinner" component={TournamentWinnerScreen} />
-      <Stack.Group initialRouteName="CreateTournamentsStack">
-        <Stack.Screen name="CreateTournamentsStack" component={InfoTournamentScreen} />
+      {/* <Stack.Group initialRouteName="CreateTournamentsStack" options={{ tabBarVisible: false }}>
+        <Stack.Screen name="CreateTournamentsStack" options={{ tabBarVisible: false }} component={InfoTournamentScreen} />
         <Stack.Screen name="PlaceBalls" component={PlaceBallsTournamentScreen} />
         <Stack.Screen name="SubmitTournament" component={SubmitTournamentScreen} />
-      </Stack.Group>
+      </Stack.Group> */}
+    </Stack.Navigator>
+  )
+};
+
+export const Tournament = () => {
+  return (
+    <Stack.Navigator initialRouteName="TournamentInfo" screenOptions={{ headerShown: false, }}>
+      <Stack.Screen name="TournamentInfo" options={{ tabBarVisible: false }} component={InfoTournamentScreen} />
+      <Stack.Screen name="PlaceBalls" component={PlaceBallsTournamentScreen} />
+      <Stack.Screen name="SubmitTournament" component={SubmitTournamentScreen} />
     </Stack.Navigator>
   )
 };
