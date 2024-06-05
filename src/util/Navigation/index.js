@@ -8,6 +8,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { Context } from '../Global';
 import { NavigationContainer } from '@react-navigation/native';
 import { config } from '../Services/firebase';
+import { PlayScreen } from '../../screens/Play';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -38,6 +39,7 @@ export const MainNavigation = () => {
                             <Stack.Screen name="Tabs" component={TabNavigate} />
                             <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
                             <Stack.Screen name="TournamentStack" component={Tournament} />
+                            <Stack.Screen name="PlayScreen" component={PlayScreen} />
                         </Stack.Navigator>
                     )
                     : (
@@ -45,6 +47,7 @@ export const MainNavigation = () => {
                             <Stack.Screen name="Tabs" component={TabNavigate} />
                             <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
                             <Stack.Screen name="TournamentStack" component={Tournament} />
+                            <Stack.Screen name="PlayScreen" component={PlayScreen} />
                         </Stack.Navigator>
                     )
             }

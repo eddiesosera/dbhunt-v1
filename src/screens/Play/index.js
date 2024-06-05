@@ -1,4 +1,4 @@
-import { Dimensions, Image, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
+import { Dimensions, Image, NativeModules, Platform, StatusBar, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { useNavigation } from '@react-navigation/native';
@@ -7,13 +7,17 @@ import MapView, { Marker } from 'react-native-maps';
 
 import dragonball from "../../../assets/img/misc/dragonball.png";
 import { GlobalStyle } from '../../util/Style';
-import { Ionicons } from '@expo/vector-icons';
+import { Feather, Ionicons, Octicons } from '@expo/vector-icons';
+// import { StatusBar } from 'expo-status-bar';
 
 const screenHeight = Dimensions.get("screen").height;
+const { StatusBarManager } = NativeModules;
 
-export const PlayScreen = () => {
+export const PlayScreen = ({ navigation }) => {
+    const [statusBar, setStatusBar] = useState(0);
     const [isDragonballActive, setIsDragonballActive] = useState(false);
     const bottomSheetModalRef = useRef(null);
+    // BOTTOM SHEET VARIABLES
     const snapPoints = useMemo(() => ['25%', '50%', '75%'], []);
     const handlePresentModalPress = useCallback(() => {
         bottomSheetModalRef.current?.present();
@@ -22,12 +26,34 @@ export const PlayScreen = () => {
         bottomSheetModalRef.current?.snapToIndex(0);
     };
 
+    const redirect = () => {
+        navigation.navigate('PlayScreen');
+    };
+
+    const goBack = () => {
+        navigation.navigate("Fixture");
+    };
+    useEffect(() => {
+        redirect()
+        if (Platform.OS === 'ios') {
+            StatusBarManager.getHeight((height) => {
+                setStatusBar(height.height);
+                console.log("Height: " + height.height);
+            });
+        } else {
+            // resolve(StatusBarManager.HEIGHT);
+            setStatusBar(StatusBarManager.HEIGHT);
+            console.log("Height: " + StatusBarManager.HEIGHT);
+        }
+    }, [])
+
     useEffect(() => {
         // bottomSheetModalRef.current?.present();
     }, [isDragonballActive]);
 
     return (
         <BottomSheetModalProvider>
+            <StatusBar translucent />
             <View style={styles.page}>
                 <MapView
                     style={styles.map}
@@ -48,7 +74,34 @@ export const PlayScreen = () => {
                     </Marker>
                 </MapView>
 
+                <View style={[styles.topWrap, { top: statusBar }]}>
+                    {/* TOP WRAP: LEFT */}
+                    <TouchableOpacity style={styles.topBackButton} onPress={goBack}>
+                        <Octicons name="chevron-left" size={24} color="black" />
+                    </TouchableOpacity>
+                    {/* TOP WRAP:RIGHT */}
+                    <View style={styles.topRight}>
+                        <View style={styles.topRightItem}>
+                            <Text style={styles.topRightHunt}>
+                                Pretoria Hunt
+                            </Text>
+                            <View style={styles.innertextwrap}>
+                                <Feather name="users" size={14} color="black" />
+                                <Text style={[styles.topRightUsername, { marginLeft: 5 }]}>
+                                    1
+                                </Text>
+                            </View>
+                        </View>
+                        <View style={[styles.topRightItem, { gap: 3, alignItems: 'flex-end' }]}>
+                            <Text style={styles.topRightUsername}>
+                                Eddie
+                            </Text>
+                        </View>
+                    </View>
+                </View>
+
             </View>
+
             < BottomSheetModal
                 ref={bottomSheetModalRef}
                 index={0}
@@ -66,6 +119,7 @@ export const PlayScreen = () => {
             >
                 <FilterSettingsContent isDragonballActive={isDragonballActive} />
             </ BottomSheetModal>
+
         </BottomSheetModalProvider >
     )
 }
@@ -83,7 +137,6 @@ export const FilterSettingsContent = ({ isDragonballActive }) => {
     };
 
     useEffect(() => {
-
     }, [isDragonballActive])
 
     return (
@@ -176,6 +229,65 @@ const styles = StyleSheet.create({
         height: screenHeight * 0.3 - 35,
         padding: 20
     },
+
+    // Top wrap interaction:
+    topWrap: {
+        position: 'absolute',
+        top: 0,
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+        // backgroundColor: '#ddd',
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        gap: 20
+    },
+    topBackButton: {
+        backgroundColor: '#fff',
+        // padding: 15,
+        borderRadius: 100,
+        width: 50,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        shadowColor: '#171717',
+        shadowOffset: { width: 2, height: -5 },
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        elevation: 4
+    },
+    topRight: {
+        gap: 5,
+    },
+    topRightItem: {
+        backgroundColor: '#fff',
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        borderRadius: 100,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        width: 'auto',
+        flexShrink: 1,
+        alignSelf: 'flex-end',
+        gap: 10,
+        shadowColor: '#171717',
+        shadowOffset: { width: 2, height: -5 },
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        elevation: 4
+    },
+    topRightHunt: {
+        fontFamily: 'Mona-Sans Wide Bold',
+    },
+    topRightUsername: {
+        fontFamily: 'Mona-Sans Wide Medium',
+        fontSize: 12,
+    },
+    innertextwrap: {
+        flexDirection: 'row',
+    },
+
+    // When Dragonball is selected:
     selectedDBWrap: {
         flex: 1,
         flexDirection: 'column',
@@ -221,7 +333,7 @@ const styles = StyleSheet.create({
         fontSize: 13
     },
 
-    // When No Dragonball is selected
+    // When No Dragonball is selected:
     selectDBWrap: {
         flex: 1,
         flexDirection: 'column',
