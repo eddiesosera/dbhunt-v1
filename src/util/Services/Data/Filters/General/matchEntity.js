@@ -10,7 +10,7 @@ export const matchedEntity = (array, matchKey, matchValue) => {
     if (entity) {
         return { match: entity, found: true };
     } else {
-        console.log("Array not found ")
+        // console.log("Array not found ")
         return { match: {}, found: false };
     }
 }

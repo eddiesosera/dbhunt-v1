@@ -1,5 +1,4 @@
 export const topThree = (players) => {
-
     // Map each player to an object containing their id and number of dragonballs
     const playersWithDragonballCount = players.map(player => ({
         id: player?.id,
@@ -14,12 +13,12 @@ export const topThree = (players) => {
         return players.find(player => player.id === topPlayer.id);
     });
 
-    console.log("Top 3 players: " + top3Players);
+    // console.log("Top 3 players: " + top3Players);
 
     // Rearrange the top 3
-    const firstPlayer = top3Players[1];  // Second player in the middle
-    const secondPlayer = top3Players[0]; // First player as the first in the array
-    const thirdPlayer = top3Players[2];  // Third player as the last in the array
+    const firstPlayer = top3Players[1];
+    const secondPlayer = top3Players[0];
+    const thirdPlayer = top3Players[2];
 
     return [firstPlayer, secondPlayer, thirdPlayer];
     // return top3Players;

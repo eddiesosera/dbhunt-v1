@@ -16,17 +16,23 @@ export const TopThree = ({ topPlayers, playerItem, avatars }) => {
                     const img = matchedEntity(avatars, "id", player.avatar)?.match.image
                     return (
                         i === 1 ? (
-                            <TouchableOpacity key={player.id} style={[styles.playerItem, { zIndex: 1, }]}>
+                            <TouchableOpacity key={player.id} style={[styles.playerItem, {
+                                zIndex: matched ? 2 : 1,
+                            }]}>
                                 <View style={[styles.topPlayerImgWrap, {
-                                    borderWidth: matched ? 4 : 1,
+                                    borderWidth: matched ? 2 : 1,
                                     borderColor: matched ? '#141412' : '#ddd',
                                 }]}>
                                     <Image source={img} style={styles.topPlayerImg} />
                                 </View>
+                                <Text style={[styles.topPlayerName, { marginBottom: -3 }]}>
+                                    {i === 1 && (i + " ")}
+                                </Text>
                                 <Text style={[styles.topPlayerName, {
-                                    fontFamily: matched ? 'Mona-Sans Wide Bold' : 'Mona-Sans Wide Medium'
+                                    fontFamily: matched ? 'Mona-Sans Bold' : 'Mona-Sans Medium'
                                 }]}>
                                     {player?.username}
+                                    {matched && " (me)"}
                                 </Text>
                             </TouchableOpacity>
                         ) : (
@@ -34,16 +40,25 @@ export const TopThree = ({ topPlayers, playerItem, avatars }) => {
                                 marginLeft: i === 2 && -20,
                                 marginRight: i === 0 && -20,
                                 marginTop: 20,
+                                zIndex: matched ? 2 : 0,
                             }]}>
                                 <View style={[styles.playerImgWrap, {
-                                    borderWidth: matched ? 4 : 1,
+                                    borderWidth: matched ? 2 : 1,
                                     borderColor: matched ? '#141412' : '#ddd',
                                 }]}>
                                     <Image source={img} style={styles.playerImg} />
                                 </View>
+                                <Text style={[styles.playerName, { marginBottom: -3 }]}>
+                                    {i === 0 && (i + 2 + " ")}
+                                    {i === 2 && (i + 1 + " ")}
+                                </Text>
                                 <Text style={[styles.playerName, {
-                                    fontFamily: matched ? 'Mona-Sans ExtraBold' : 'Mona-Sans Medium',
-                                }]}> {player?.username} </Text>
+                                    fontFamily: matched ? 'Mona-Sans Bold' : 'Mona-Sans Medium',
+                                }]}>
+                                    {/* Labelling 0 in the index as 2, as the array is sorted based on ui */}
+                                    {player?.username}
+                                    {matched && " (me)"}
+                                </Text>
                             </TouchableOpacity>
                         )
                     )
@@ -64,9 +79,9 @@ const styles = StyleSheet.create({
     },
     playerItem: {
         flexDirection: 'column',
-        gap: 10,
+        gap: 5,
         alignItems: 'center',
-        // position: 'absolute',
+        overflow: 'hidden',
     },
     playerImgWrap: {
         width: 90,
@@ -78,9 +93,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     topPlayerImgWrap: {
-        width: 130,
-        height: 130,
-        borderRadius: 130,
+        width: 150,
+        height: 150,
+        borderRadius: 150,
         backgroundColor: '#fff',
         overflow: 'hidden',
         alignItems: 'center',
@@ -93,14 +108,14 @@ const styles = StyleSheet.create({
         objectFit: 'contain'
     },
     topPlayerImg: {
-        width: 130,
-        height: 130,
-        borderRadius: 130,
+        width: 150,
+        height: 150,
+        borderRadius: 150,
         objectFit: 'contain'
     },
     playerName: {
         fontFamily: 'Mona-Sans Wide Medium',
-        fontSize: 12
+        fontSize: 12,
     },
     topPlayerName: {
         fontFamily: 'Mona-Sans Wide SemiBold',

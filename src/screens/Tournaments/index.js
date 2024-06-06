@@ -43,8 +43,8 @@ export const TournamentsScreen = () => {
     const handleGettingOfData = async () => {
         var allData = await getAllItems("hunts");
         setHunts(allData)
-        console.log("All Items: " + JSON.stringify(hunts))
-        console.log("ID: " + hunts[0].id)
+        // console.log("All Items: " + JSON.stringify(hunts))
+        // console.log("ID: " + hunts[0].id)
 
         // If all documents are loaded:
         if (hunts) {

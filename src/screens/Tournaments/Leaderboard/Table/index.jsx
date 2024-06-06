@@ -23,8 +23,7 @@ export const Table = ({ players, playerLogged, avatars }) => {
                             playerId={item.id}
                         />
                     )
-                }
-                }
+                }}
                 ItemSeparatorComponent={() => <View style={{ height: 5, width: 10 }} />}
                 style={styles.rankList}
                 scrollEnabled
@@ -37,6 +36,7 @@ export const Table = ({ players, playerLogged, avatars }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingBottom: 40,
     },
     rankList: {
     }

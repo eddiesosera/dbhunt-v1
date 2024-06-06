@@ -5,25 +5,27 @@ export const Row = ({ img, name, collected, rank, avatars, isSelected, playerLog
     const matched = playerLoggedId === playerId;
     return (
         <TouchableOpacity style={[styles.container, {
-            borderWidth: matched ? 2.5 : 1,
-            borderColor: matched ? '#141412' : '#ddd',
+            backgroundColor: matched ? '#EBEEFF' : '#fff',
+            borderWidth: matched ? 2 : 1,
+            borderColor: matched ? '#5C5E66' : '#ddd',
         }]}>
             <View style={styles.userWrap}>
                 <Image source={img} style={styles.userImg} />
                 <Text style={[styles.userName, {
                     fontFamily: matched ? 'Mona-Sans Bold' : 'Mona-Sans Medium',
-                }]}>{name}
+                }]}>
+                    {name}{matched && ' (me)'}
                 </Text>
             </View>
             <Text style={[styles.draonballsCollected, {
                 fontFamily: matched ? 'Mona-Sans Bold' : 'Mona-Sans Medium',
             }]}>
-                {collected}
+                {collected} db
             </Text>
             <Text style={[styles.userRank, {
                 fontFamily: matched ? 'Mona-Sans Bold' : 'Mona-Sans Medium',
             }]}>
-                {rank}
+                #{rank}
             </Text>
         </TouchableOpacity>
     )
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#eee',
         justifyContent: 'space-between',
-        borderRadius: 40,
+        borderRadius: 5,
         flexDirection: 'row',
         alignItems: 'center',
         paddingRight: 20,
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
     userImg: {
         width: 40,
         height: 40,
-        borderRadius: 40,
+        borderRadius: 5,
         borderWidth: 0.5,
         borderColor: '#ddd',
         objectFit: 'contain',
