@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 import React, { useContext, useEffect, useState } from 'react';
-import { AccountStack, OnboardingStack, PlayStack, Tournament, TournamentsStack } from '../StackScreens';
+import { AccountStack, Hunt, HuntsStack, OnboardingStack, PlayStack } from '../StackScreens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { CustomTab } from './customTab';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -38,7 +38,7 @@ export const MainNavigation = () => {
                         <Stack.Navigator screenOptions={{ headerShown: false }} options={{ tabBarVisible: false }}>
                             <Stack.Screen name="Tabs" component={TabNavigate} />
                             <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
-                            <Stack.Screen name="TournamentStack" component={Tournament} />
+                            <Stack.Screen name="HuntStack" component={Hunt} />
                             <Stack.Screen name="PlayScreen" component={PlayScreen} />
                         </Stack.Navigator>
                     )
@@ -46,7 +46,7 @@ export const MainNavigation = () => {
                         <Stack.Navigator screenOptions={{ headerShown: false }} options={{ tabBarVisible: false }}>
                             <Stack.Screen name="Tabs" component={TabNavigate} />
                             <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
-                            <Stack.Screen name="TournamentStack" component={Tournament} />
+                            <Stack.Screen name="HuntStack" component={Hunt} />
                             <Stack.Screen name="PlayScreen" component={PlayScreen} />
                         </Stack.Navigator>
                     )
@@ -58,10 +58,10 @@ export const MainNavigation = () => {
 
 export const TabNavigate = () => {
     return (
-        <Tab.Navigator initialRouteName='Play'
+        <Tab.Navigator initialRouteName='Hunts'
             tabBar={(props) => <CustomTab {...props} />}
             screenOptions={{ headerShown: false }}>
-            <Tab.Screen name="Fixture" component={TournamentsStack} />
+            <Tab.Screen name="Hunts" component={HuntsStack} />
             <Tab.Screen name="Play" component={PlayStack} />
             <Tab.Screen name="Account" component={AccountStack} />
         </Tab.Navigator>

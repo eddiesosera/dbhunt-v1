@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
+import { Feather, Ionicons, Octicons } from '@expo/vector-icons';
 import { useEffect, useRef, useState } from 'react';
 import { View, Text, StyleSheet, Pressable, Dimensions, Animated } from 'react-native';;
 
@@ -45,11 +45,11 @@ export const CustomTab = ({ state, descriptors, navigation }) => {
                                 iconName = 'play';
                             }
                             break;
-                        case 'Fixture':
+                        case 'Hunts':
                             if (isFocused) {
-                                iconName = 'ribbon';
+                                iconName = 'home';
                             } else {
-                                iconName = 'ribbon';
+                                iconName = 'home';
                             }
                             break;
                         case 'Account':
@@ -73,13 +73,13 @@ export const CustomTab = ({ state, descriptors, navigation }) => {
                             key={index}
                         >
 
-                            <Ionicons name={iconName} size={28} color={isFocused ? '#060612' : '#939398'} />
+                            <Octicons name={iconName} size={24} color={isFocused ? '#060612' : '#C1C3CC'} />
 
                             {/* Screen name conditional rendering if page is active */}
                             <Text style={[styles.navText, {
                                 color: isFocused ? '#060612' : '#C1C3CC',
                                 // fontWeight: isFocused ? 'bold' : 'bold',
-                                fontFamily: 'Mona-Sans Wide SemiBold'
+                                fontFamily: 'Mona-Sans Wide Medium'
                             }]}>
                                 {label}
                             </Text>
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     navText: {
-        marginTop: -7,
-        fontSize: 10,
+        marginTop: -5,
+        fontSize: 11,
     }
 })

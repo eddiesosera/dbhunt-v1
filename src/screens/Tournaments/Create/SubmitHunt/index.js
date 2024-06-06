@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export const PlaceBallsTournamentScreen = () => {
+export const SubmitHuntScreen = () => {
     return (
         <View style={styles.container}>
-            <Text>Place Balls for Tournament</Text>
+            <Text>Submit Tournament</Text>
         </View>
     )
 }

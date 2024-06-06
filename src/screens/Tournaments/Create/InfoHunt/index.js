@@ -11,7 +11,7 @@ import { AntDesign, MaterialCommunityIcons, Octicons } from '@expo/vector-icons'
 import bgImg from '../../../../../assets/img/background/db_doodle.png'
 import { Dropdown } from '@rafaelgomes/react-native-element-dropdown'
 
-export const InfoTournamentScreen = () => {
+export const InfoHuntScreen = () => {
     const [title, setTitle] = useState('');
     const [titlePlaceholder, setTitlePlaceholder] = useState('Title');
     const [isTitleActive, setIsTitleActive] = useState(false);

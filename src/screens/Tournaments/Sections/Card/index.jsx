@@ -4,8 +4,10 @@ import React from 'react';
 import HuntBg from '../../../../../assets/img/background/hunt_bg.png';
 import img1 from '../../../../../assets/img/characters/bardock.png';
 import { Row } from '../../Leaderboard/Table/Row';
+import { useNavigation } from '@react-navigation/native';
 
-export const HuntCard = ({ region, customStyle, isMinimized }) => {
+export const HuntCard = ({ competitionId, region, customStyle, isMinimized }) => {
+    const navigation = useNavigation();
     let minHeight = 150;
     const userLoggedIn = {
         id: 4,
@@ -14,10 +16,20 @@ export const HuntCard = ({ region, customStyle, isMinimized }) => {
         collected: ["", "", "", "",]
     };
 
+    const goToCompetition = () => {
+        navigation.navigate("Leaderboard")
+    }
+
     return (
-        <TouchableOpacity style={[styles.container, { height: isMinimized ? minHeight : 450, justifyContent: isMinimized ? 'center' : '' }]}>
+        <TouchableOpacity
+            onPress={goToCompetition}
+            style={[styles.container, {
+                height: isMinimized ? minHeight : 450,
+                justifyContent: isMinimized ? 'center' : ''
+            }]}>
             <Image source={HuntBg} style={styles.bgImage} />
-            <View style={[styles.deetsWrap, { marginTop: isMinimized ? 0 : 40 }]}>
+            <View style={[styles.deetsWrap, { marginTop: isMinimized ? 0 : 40 }]}
+            >
                 <View style={styles.deetsTitleWrap}>
                     <Text style={styles.deetsTitleL}>
                         Pretoria {region}

@@ -31,7 +31,7 @@ export const PlayScreen = ({ navigation }) => {
     };
 
     const goBack = () => {
-        navigation.navigate("Fixture");
+        navigation.navigate("Hunts");
     };
     useEffect(() => {
         redirect()

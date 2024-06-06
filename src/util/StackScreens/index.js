@@ -2,9 +2,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import { PlayScreen } from '../../screens/Play';
-import { InfoTournamentScreen } from '../../screens/Tournaments/Create/InfoTournament';
-import { PlaceBallsTournamentScreen } from '../../screens/Tournaments/Create/PlaceBallsTournament';
-import { SubmitTournamentScreen } from '../../screens/Tournaments/Create/SubmitTournament';
+import { InfoHuntScreen } from '../../screens/Tournaments/Create/InfoHunt';
+import { PlaceBallsHuntScreen } from '../../screens/Tournaments/Create/PlaceBallsHunt';
+import { SubmitHuntScreen } from '../../screens/Tournaments/Create/SubmitHunt';
 import { LeaderboardScreen } from '../../screens/Tournaments/Leaderboard';
 import { EditAccountScreen } from '../../screens/Account/Stack/EditAccount';
 import { TournamentWinnerScreen } from '../../screens/Tournaments/Winner';
@@ -27,12 +27,12 @@ export const PlayStack = () => {
   )
 };
 
-export const TournamentsStack = () => {
+export const HuntsStack = () => {
   return (
-    <Stack.Navigator initialRouteName="TournamentsStack" screenOptions={{ headerShown: false, }}>
-      <Stack.Screen name="TournamentsStack" component={TournamentsScreen} />
+    <Stack.Navigator initialRouteName="HuntsStack" screenOptions={{ headerShown: false, }}>
+      <Stack.Screen name="HuntsStack" component={TournamentsScreen} />
       <Stack.Screen name="Leaderboard" component={LeaderboardScreen} />
-      <Stack.Screen name="TournamentWinner" component={TournamentWinnerScreen} />
+      <Stack.Screen name="HuntWinner" component={TournamentWinnerScreen} />
       {/* <Stack.Group initialRouteName="CreateTournamentsStack" options={{ tabBarVisible: false }}>
         <Stack.Screen name="CreateTournamentsStack" options={{ tabBarVisible: false }} component={InfoTournamentScreen} />
         <Stack.Screen name="PlaceBalls" component={PlaceBallsTournamentScreen} />
@@ -42,12 +42,12 @@ export const TournamentsStack = () => {
   )
 };
 
-export const Tournament = () => {
+export const Hunt = () => {
   return (
-    <Stack.Navigator initialRouteName="TournamentInfo" screenOptions={{ headerShown: false, }}>
-      <Stack.Screen name="TournamentInfo" options={{ tabBarVisible: false }} component={InfoTournamentScreen} />
-      <Stack.Screen name="PlaceBalls" component={PlaceBallsTournamentScreen} />
-      <Stack.Screen name="SubmitTournament" component={SubmitTournamentScreen} />
+    <Stack.Navigator initialRouteName="HuntInfo" screenOptions={{ headerShown: false, }}>
+      <Stack.Screen name="HuntInfo" options={{ tabBarVisible: false }} component={InfoHuntScreen} />
+      <Stack.Screen name="PlaceBalls" component={PlaceBallsHuntScreen} />
+      <Stack.Screen name="SubmitTournament" component={SubmitHuntScreen} />
     </Stack.Navigator>
   )
 };
