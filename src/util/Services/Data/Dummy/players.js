@@ -42,7 +42,8 @@ export const playersDummy = [
         password: 'mnopqr',
         dateJoined: '2024-03-24T19:59:59.999Z',
         role: 'player',
-        region: '2'
+        region: '2',
+        avatar: '5'
     },
     {
         id: '5',
@@ -64,7 +65,7 @@ export const playersDummy = [
         dateJoined: '2024-01-04T08:59:59.999Z',
         role: 'player',
         region: '3',
-        avatar: '3'
+        avatar: '6'
     },
     {
         id: '7',
@@ -85,7 +86,8 @@ export const playersDummy = [
         password: 'klmnop',
         dateJoined: '2023-11-14T17:59:59.999Z',
         role: 'player',
-        region: '1'
+        region: '1',
+        avatar: '3'
     },
     {
         id: '9',

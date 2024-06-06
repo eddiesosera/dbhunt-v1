@@ -1,7 +1,7 @@
 import { Dimensions, Image, NativeModules, Platform, StatusBar, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import MapsExample from './Maps';
 import MapView, { Marker } from 'react-native-maps';
 
@@ -33,7 +33,7 @@ export const PlayScreen = ({ navigation }) => {
     const goBack = () => {
         navigation.navigate("Hunts");
     };
-    useEffect(() => {
+    useFocusEffect(useCallback(() => {
         redirect()
         if (Platform.OS === 'ios') {
             StatusBarManager.getHeight((height) => {
@@ -45,7 +45,8 @@ export const PlayScreen = ({ navigation }) => {
             setStatusBar(StatusBarManager.HEIGHT);
             console.log("Height: " + StatusBarManager.HEIGHT);
         }
-    }, [])
+    })
+    )
 
     useEffect(() => {
         // bottomSheetModalRef.current?.present();

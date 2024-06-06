@@ -1,27 +1,50 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { matchedEntity } from '../../../../util/Services/Data/Filters/General/matchEntity'
 
-export const TopThree = ({ players }) => {
+export const TopThree = ({ topPlayers, playerItem, avatars }) => {
+
+    useEffect(() => {
+    }, [])
+
     return (
         <View style={styles.wrap}>
             {/* <Text>Plyr</Text> */}
             {
-                players?.map((player, i) => {
+                topPlayers?.map((player, i) => {
+                    const matched = player.id === playerItem.id;
+                    const img = matchedEntity(avatars, "id", player.avatar)?.match.image
                     return (
                         i === 1 ? (
-                            <View style={styles.playerItem}>
-                                <View style={styles.topPlayerImgWrap}>
-                                    <Image source={player?.avatar} styles={styles.topPlayerImg} />
+                            <TouchableOpacity key={player.id} style={[styles.playerItem, { zIndex: 1, }]}>
+                                <View style={[styles.topPlayerImgWrap, {
+                                    borderWidth: matched ? 4 : 1,
+                                    borderColor: matched ? '#141412' : '#ddd',
+                                }]}>
+                                    <Image source={img} style={styles.topPlayerImg} />
                                 </View>
-                                <Text style={styles.topPlayerName}> {player?.username} </Text>
-                            </View>
+                                <Text style={[styles.topPlayerName, {
+                                    fontFamily: matched ? 'Mona-Sans Wide Bold' : 'Mona-Sans Wide Medium'
+                                }]}>
+                                    {player?.username}
+                                </Text>
+                            </TouchableOpacity>
                         ) : (
-                            <View style={styles.playerItem}>
-                                <View style={styles.playerImgWrap}>
-                                    <Image source={player?.avatar} styles={styles.playerImg} />
+                            <TouchableOpacity key={player.id} style={[styles.playerItem, {
+                                marginLeft: i === 2 && -20,
+                                marginRight: i === 0 && -20,
+                                marginTop: 20,
+                            }]}>
+                                <View style={[styles.playerImgWrap, {
+                                    borderWidth: matched ? 4 : 1,
+                                    borderColor: matched ? '#141412' : '#ddd',
+                                }]}>
+                                    <Image source={img} style={styles.playerImg} />
                                 </View>
-                                <Text style={styles.playerName}> {player?.username} </Text>
-                            </View>
+                                <Text style={[styles.playerName, {
+                                    fontFamily: matched ? 'Mona-Sans ExtraBold' : 'Mona-Sans Medium',
+                                }]}> {player?.username} </Text>
+                            </TouchableOpacity>
                         )
                     )
                 })
@@ -36,43 +59,44 @@ const styles = StyleSheet.create({
         // justifyContent:'space-between',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: 20,
+        // gap: 20,
         width: '100%'
     },
     playerItem: {
         flexDirection: 'column',
         gap: 10,
-        alignItems: 'center'
+        alignItems: 'center',
+        // position: 'absolute',
     },
     playerImgWrap: {
-        width: 80,
-        height: 80,
-        borderRadius: 80,
-        backgroundColor: '#eee',
+        width: 90,
+        height: 90,
+        borderRadius: 90,
+        backgroundColor: '#fff',
         overflow: 'hidden',
         alignItems: 'center',
         justifyContent: 'center',
     },
     topPlayerImgWrap: {
-        width: 120,
-        height: 120,
-        borderRadius: 120,
-        objectFit: 'cover',
-        backgroundColor: '#ddd',
+        width: 130,
+        height: 130,
+        borderRadius: 130,
+        backgroundColor: '#fff',
         overflow: 'hidden',
         alignItems: 'center',
         justifyContent: 'center',
     },
     playerImg: {
-        width: 80,
-        height: 80,
-        borderRadius: 80,
+        width: 90,
+        height: 90,
+        borderRadius: 90,
+        objectFit: 'contain'
     },
     topPlayerImg: {
-        width: 120,
-        height: 120,
-        borderRadius: 120,
-        objectFit: 'cover'
+        width: 130,
+        height: 130,
+        borderRadius: 130,
+        objectFit: 'contain'
     },
     playerName: {
         fontFamily: 'Mona-Sans Wide Medium',
