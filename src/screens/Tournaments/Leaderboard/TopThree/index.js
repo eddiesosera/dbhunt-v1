@@ -3,17 +3,26 @@ import React from 'react'
 
 export const TopThree = ({ players }) => {
     return (
-        <View style={styles.playerItem}>
-            <Text>Plyr</Text>
+        <View style={styles.wrap}>
+            {/* <Text>Plyr</Text> */}
             {
                 players?.map((player, i) => {
                     return (
-                        <View style={styles.playerItem}>
-                            <View style={styles.playerImgWrap}>
-                                <Image source={player?.avatar} styles={styles.playerImg} />
+                        i === 1 ? (
+                            <View style={styles.playerItem}>
+                                <View style={styles.topPlayerImgWrap}>
+                                    <Image source={player?.avatar} styles={styles.topPlayerImg} />
+                                </View>
+                                <Text style={styles.topPlayerName}> {player?.username} </Text>
                             </View>
-                            <Text style={styles.playerName}> {player?.name} </Text>
-                        </View>
+                        ) : (
+                            <View style={styles.playerItem}>
+                                <View style={styles.playerImgWrap}>
+                                    <Image source={player?.avatar} styles={styles.playerImg} />
+                                </View>
+                                <Text style={styles.playerName}> {player?.username} </Text>
+                            </View>
+                        )
                     )
                 })
             }
@@ -25,37 +34,52 @@ const styles = StyleSheet.create({
     wrap: {
         flexDirection: 'row',
         // justifyContent:'space-between',
+        alignItems: 'center',
+        justifyContent: 'center',
         gap: 20,
+        width: '100%'
     },
     playerItem: {
         flexDirection: 'column',
         gap: 10,
+        alignItems: 'center'
     },
     playerImgWrap: {
-        width: 110,
-        height: 110,
-        borderRadius: 110,
-        backgroundColor: '#eee'
+        width: 80,
+        height: 80,
+        borderRadius: 80,
+        backgroundColor: '#eee',
+        overflow: 'hidden',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     topPlayerImgWrap: {
-        width: 110,
-        height: 110,
-        borderRadius: 110,
-        objectFit: 'cover'
+        width: 120,
+        height: 120,
+        borderRadius: 120,
+        objectFit: 'cover',
+        backgroundColor: '#ddd',
+        overflow: 'hidden',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     playerImg: {
-        width: 90,
-        height: 90,
-        borderRadius: 90,
-        backgroundColor: '#eee'
+        width: 80,
+        height: 80,
+        borderRadius: 80,
     },
     topPlayerImg: {
-        width: 90,
-        height: 90,
-        borderRadius: 90,
+        width: 120,
+        height: 120,
+        borderRadius: 120,
         objectFit: 'cover'
     },
     playerName: {
-
-    }
+        fontFamily: 'Mona-Sans Wide Medium',
+        fontSize: 12
+    },
+    topPlayerName: {
+        fontFamily: 'Mona-Sans Wide SemiBold',
+        fontSize: 14
+    },
 })

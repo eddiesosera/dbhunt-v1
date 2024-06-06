@@ -9,7 +9,7 @@ import img5 from '../../../../../assets/img/characters/bardock.png';
 import { Row } from './Row';
 
 
-export const Table = (usersInHunt) => {
+export const Table = ({ players }) => {
     const usersDummy = [
         {
             id: 0,
@@ -43,22 +43,24 @@ export const Table = (usersInHunt) => {
         }
     ];
 
-    const sortedUsers = usersDummy.sort((a, b) => b.collected.length - a.collected.length);
+    // Players excluding the top 3
+    const sortedPlayers = players?.slice(3).sort((a, b) => b.dragonballs.length - a.dragonballs.length);
 
     return (
         <View style={styles.container}>
             {/* <Text>index</Text> */}
             <FlatList
-                data={sortedUsers}
-                renderItem={({ item }) => (
+                data={sortedPlayers}
+                renderItem={({ item, index }) => (
                     <Row
                         img={item.avatar}
                         name={item.username}
-                        collected={item.collected.length}
-                        rank={item.id + 1} />
+                        collected={item.dragonballs.length}
+                        rank={index + 3} />
                 )}
                 ItemSeparatorComponent={() => <View style={{ height: 5, width: 10 }} />}
                 style={styles.rankList}
+                scrollEnabled
             />
 
         </View>
@@ -67,7 +69,7 @@ export const Table = (usersInHunt) => {
 
 const styles = StyleSheet.create({
     container: {
-
+        flex: 1,
     },
     rankList: {
 
