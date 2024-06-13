@@ -15,6 +15,7 @@ const screenHeight = Dimensions.get("screen").height;
 const { StatusBarManager } = NativeModules;
 
 export const PlayScreen = ({ navigation }) => {
+    const [dragonBallsNearby,setDragonBallsNearby]=useState([])
     const [statusBar, setStatusBar] = useState(0);
     const [isDragonballActive, setIsDragonballActive] = useState(false);
     const bottomSheetModalRef = useRef(null);
@@ -35,7 +36,8 @@ export const PlayScreen = ({ navigation }) => {
         navigation.navigate("Hunts");
     };
     useFocusEffect(useCallback(() => {
-        redirect()
+        redirect();
+        
         if (Platform.OS === 'ios') {
             StatusBarManager.getHeight((height) => {
                 setStatusBar(height.height);
@@ -74,6 +76,13 @@ export const PlayScreen = ({ navigation }) => {
                     <Marker coordinate={{ latitude: 37.78825, longitude: -122.4324 }}>
                         <Image style={{ height: 75, width: 75, borderRadius: 50 }} source={dragonball} />
                     </Marker>
+                    {
+                        dragonBallsNearby.map(()=>{
+                            <Marker coordinate={{ latitude: 37.78825, longitude: -122.4324 }}>
+                            <Image style={{ height: 75, width: 75, borderRadius: 50 }} source={dragonball} />
+                        </Marker>
+                        })
+                    }
 
                         <LocationMarker/>
                 </MapView>
