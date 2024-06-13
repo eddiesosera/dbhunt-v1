@@ -8,6 +8,7 @@ import MapView, { Marker } from 'react-native-maps';
 import dragonball from "../../../assets/img/misc/dragonball.png";
 import { GlobalStyle } from '../../util/Style';
 import { Feather, Ionicons, Octicons } from '@expo/vector-icons';
+import { LocationMarker } from './Maps/locationMarker';
 // import { StatusBar } from 'expo-status-bar';
 
 const screenHeight = Dimensions.get("screen").height;
@@ -73,6 +74,8 @@ export const PlayScreen = ({ navigation }) => {
                     <Marker coordinate={{ latitude: 37.78825, longitude: -122.4324 }}>
                         <Image style={{ height: 75, width: 75, borderRadius: 50 }} source={dragonball} />
                     </Marker>
+
+                        <LocationMarker/>
                 </MapView>
 
                 <View style={[styles.topWrap, { top: statusBar }]}>
