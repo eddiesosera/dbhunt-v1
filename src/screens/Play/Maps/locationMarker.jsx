@@ -1,17 +1,15 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { View } from "react-native-animatable";
 import { Marker } from "react-native-maps";
 import { getUsertLocation } from "../../../util/Services/Map/getUserLocation";
 
-export const LocationMarker = ({ username,location }) => {
-
+export const LocationMarker = ({ username, location,coordinate }) => {
   useEffect(() => {
-
-   if(location.latitude){
-    // console.log("User location: " + JSON.stringify(location));
-   }
+    if (location.latitude) {
+      // console.log("User location: " + JSON.stringify(location));
+    }
   }, []);
 
   return (
@@ -19,19 +17,32 @@ export const LocationMarker = ({ username,location }) => {
       coordinate={{
         latitude: location?.latitude,
         longitude: location?.longitude,
-    }}>
-      <View style={styles.userWrap}>
-        <Ionicons name="pin" size={18} color="black" />
-        <Text>Username</Text>
-      </View>
+      }}
+      onPress={e=>alert("Clicked")}
+    >
+      <TouchableOpacity style={styles.userWrap}>
+        <Ionicons name="pin" size={21} color="#fff" />
+        <Text style={styles.userText}>You</Text>
+      </TouchableOpacity>
     </Marker>
   );
 };
 
 const styles = StyleSheet.create({
   userWrap: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#111",
     padding: 10,
-    flexDirection: "column",
+    flexDirection: "row",
+    alignItems:'center',
+    borderRadius: 10,
+    gap:3,
+    borderWidth: 1,
+    borderColor:'#eee',
+    paddingRight:13,
   },
+  userText:{
+    fontFamily: "Mona-Sans Wide Medium",
+    fontSize:16,
+    color:'#fff'
+  }
 });

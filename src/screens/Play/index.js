@@ -23,22 +23,29 @@ import {
 } from "@gorhom/bottom-sheet";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import MapsExample from "./Maps";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Circle, Marker, Polygon } from "react-native-maps";
 
 import dragonball from "../../../assets/img/misc/dragonball.png";
 import { GlobalStyle } from "../../util/Style";
 import { Feather, Ionicons, Octicons } from "@expo/vector-icons";
 import { LocationMarker } from "./Maps/locationMarker";
 import { getUsertLocation } from "../../util/Services/Map/getUserLocation";
+import { calculateCircleCoordinates } from "../../util/Services/Map/radiusCoordinates";
 
 const screenHeight = Dimensions.get("screen").height;
 const { StatusBarManager } = NativeModules;
 
 export const PlayScreen = () => {
   const navigation = useNavigation();
-  const [userLocation, setUserLocation] = useState(null);
-  const [dragonBallsNearby, setDragonBallsNearby] = useState([]);
   const [statusBar, setStatusBar] = useState(0);
+
+  //   Maps var
+  const [userLocation, setUserLocation] = useState(null);
+  const [mapRegion, setMapRegion] = useState(null);
+  const [markerPosition, setMarkerPosition] = useState(null);
+  const [dragonBallsNearby, setDragonBallsNearby] = useState([]);
+
+  // UI
   const [isDragonballActive, setIsDragonballActive] = useState(true);
   const bottomSheetModalRef = useRef(null);
   // BOTTOM SHEET VARIABLES
@@ -76,9 +83,9 @@ export const PlayScreen = () => {
   useEffect(() => {
     // bottomSheetModalRef.current?.present();
     const fetchLocation = async () => {
-        const location = await getUsertLocation();
-        setUserLocation(location);
-        console.log("User location (parent): " +userLocation);
+      const location = await getUsertLocation();
+      setUserLocation(location);
+      console.log("User location (parent): " + userLocation);
     };
 
     fetchLocation();
@@ -88,29 +95,34 @@ export const PlayScreen = () => {
     <BottomSheetModalProvider>
       <StatusBar translucent />
       <View style={styles.page}>
-        {
-            userLocation ? (
-                <MapView
-                    style={styles.map}
-                    initialRegion={{
-                      latitude: userLocation.latitude,
-                      longitude: userLocation.longitude,
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
-                    }}
-                    onPress={(e) => {
-                      console.log("CLICKED", e.nativeEvent.coordinate);
-                      handlePresentModalPress();
-                      setIsDragonballActive(!isDragonballActive);
-                    }}
-                  >
-                    <Marker coordinate={{ latitude: 37.78825, longitude: -122.4324 }}>
-                      <Image
-                        style={{ height: 75, width: 75, borderRadius: 50 }}
-                        source={dragonball}
-                      />
-                    </Marker>
-                    {/* {
+        {userLocation ? (
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: userLocation.latitude,
+              longitude: userLocation.longitude,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+            // onRegionChangeComplete={}
+          >
+            <Marker
+              coordinate={{
+                latitude: userLocation.latitude + 0.02,
+                longitude: userLocation.longitude + 0.01,
+              }}
+              onPress={(e) => {
+                console.log("CLICKED", e.nativeEvent.coordinate);
+                handlePresentModalPress();
+                setIsDragonballActive(!isDragonballActive);
+              }}
+            >
+              <Image
+                style={{ height: 75, width: 75, borderRadius: 50 }}
+                source={dragonball}
+              />
+            </Marker>
+            {/* {
                                 dragonBallsNearby.map(()=>{
                                     <Marker coordinate={{ latitude: 37.78825, longitude: -122.4324 }}>
                                     <Image style={{ height: 75, width: 75, borderRadius: 50 }} source={dragonball} />
@@ -118,15 +130,25 @@ export const PlayScreen = () => {
                                 })
                             } 
                              */}
-        
-                    <LocationMarker location={userLocation} />
-                  </MapView>
-            ) : (
-                <Text>Loading maps...</Text>
-            )
-        }
 
+            <LocationMarker location={userLocation} />
 
+            {/* Circle Highlighting Area */}
+            <Circle
+              center={{
+                latitude: userLocation.latitude,
+                longitude: userLocation.longitude,
+              }}
+              radius={1000}
+              fillColor="rgba(255, 0, 0, 0.2)"
+              strokeColor="rgba(255, 0, 0, 0.8)"
+              strokeWidth={2}
+            />
+
+          </MapView>
+        ) : (
+          <Text>Loading maps...</Text>
+        )}
 
         <View style={[styles.topWrap, { top: statusBar }]}>
           {/* TOP WRAP: LEFT */}
@@ -156,7 +178,8 @@ export const PlayScreen = () => {
       <BottomSheetModal
         ref={bottomSheetModalRef}
         index={0}
-        snapPoints={["30%"]}
+        snapPoints={["32%"]}
+        enablePanDownToClose
         handleComponent={null}
         onAnimate={handleOnAnimate}
         animatedIndex={0}
@@ -199,18 +222,17 @@ export const FilterSettingsContent = ({ isDragonballActive }) => {
             <Image source={dragonball} style={styles.selectedDBImg} />
             <View style={styles.selectedRightDB}>
               <Text style={styles.selectedRightDBTitle}>Dragonball</Text>
-
               <View style={styles.selectedRightBtm}>
-                <View style={styles.selectedRightBtmItem}>
+                {/* <View style={styles.selectedRightBtmItem}>
                   <Ionicons name="pin" size={18} color="black" />
                   <Text style={styles.selectedRightBtmItemText}>DB-12-P</Text>
-                </View>
+                </View> */}
                 <View style={styles.selectedRightBtmItem}>
-                  <Ionicons name="star" size={18} color="black" />
+                  <Ionicons name="star" size={18} color="#999" />
                   <Text style={styles.selectedRightBtmItemText}>3 stars</Text>
                 </View>
                 <View style={styles.selectedRightBtmItem}>
-                  <Ionicons name="person-outline" size={18} color="black" />
+                  <Ionicons name="person" size={18} color="#999" />
                   <Text style={styles.selectedRightBtmItemText}>
                     Claimed by Eddie
                   </Text>
@@ -218,6 +240,7 @@ export const FilterSettingsContent = ({ isDragonballActive }) => {
               </View>
             </View>
           </View>
+
           <TouchableOpacity style={GlobalStyle.PrimaryFillButton}>
             <Text style={GlobalStyle.PrimaryFillButtonText}>
               Collect Dragonballs
@@ -276,7 +299,7 @@ const styles = StyleSheet.create({
     // flex: 1,
     flexDirection: "column",
     gap: 20,
-    height: screenHeight * 0.3 - 35,
+    height: screenHeight * 0.32 - 35,
     padding: 20,
   },
 
@@ -342,12 +365,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     gap: 20,
-    justifyContent: "flex-end",
+    // justifyContent: "flex-end",
   },
   selectedDBContent: {
-    flex: 1,
+    // flex: 1,
     flexDirection: "row",
-    gap: 20,
+    gap: 40,
   },
   selectedDBImg: {
     height: 10,
@@ -357,24 +380,25 @@ const styles = StyleSheet.create({
   selectedRightDB: {
     flex: 1,
     flexDirection: "column",
-    gap: 10,
     justifyContent: "center",
-    // backgroundColor: 'yellow'
+    // backgroundColor: 'yellow',
+    gap: 10,
   },
   selectedRightDBTitle: {
     fontSize: 20,
     fontFamily: "Mona-Sans Wide Bold",
   },
   selectedRightBtm: {
-    flex: 1,
+    // flex: 1,
     flexDirection: "column",
-    gap: 2,
+    gap: 5,
   },
   selectedRightBtmItem: {
-    flex: 1,
+    // flex: 1,
     flexDirection: "row",
     alignItems: "center",
     gap: 5,
+    // backgroundColor:'red'
   },
   selectedRightBtmItemText: {
     fontFamily: "Mona-Sans Wide",
