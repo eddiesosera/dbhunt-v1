@@ -1,10 +1,10 @@
-import * as Location from 'expo-location';
+import * as Location from "expo-location";
 
-export const getUsertLocation=async()=> {
+export const getUsertLocation = async () => {
   // Request permission to access location
   let { status } = await Location.requestForegroundPermissionsAsync();
-  if (status !== 'granted') {
-    console.error('Permission to access location was denied');
+  if (status !== "granted") {
+    console.error("Permission to access location was denied");
     return null;
   }
 
@@ -12,9 +12,14 @@ export const getUsertLocation=async()=> {
   let location = await Location.getCurrentPositionAsync({});
   const { latitude, longitude } = location.coords;
 
+  // console.log("Location granted: "+ JSON.stringify({
+  //   latitude,
+  //   longitude,
+  // }));
+
   // Return the location object
   return {
     latitude,
-    longitude
+    longitude,
   };
-}
+};

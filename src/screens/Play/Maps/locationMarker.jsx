@@ -1,26 +1,28 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { View } from "react-native-animatable";
 import { Marker } from "react-native-maps";
 import { getUsertLocation } from "../../../util/Services/Map/getUserLocation";
 
-export const LocationMarker = ({ username }) => {
-  const [userLocation, setUserLocation] = useState({});
+export const LocationMarker = ({ username,location }) => {
 
   useEffect(() => {
-    const location = getUsertLocation();
-    setUserLocation(location);
-  }, [userLocation]);
+
+   if(location.latitude){
+    // console.log("User location: " + JSON.stringify(location));
+   }
+  }, []);
+
   return (
     <Marker
       coordinate={{
-        latitude: userLocation.latitude,
-        longitude: userLocation.longitude,
+        latitude: location?.latitude,
+        longitude: location?.longitude,
     }}>
       <View style={styles.userWrap}>
         <Ionicons name="pin" size={18} color="black" />
-        {username}
+        <Text>Username</Text>
       </View>
     </Marker>
   );
