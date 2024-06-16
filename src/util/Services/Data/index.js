@@ -9,8 +9,7 @@ export const createItem = async (collectionName, item) => {
     try {
         // docRef - is reference to our newly cretaed document
         const docRef = await addDoc(collection(db, collectionName), item);
-        console.log("Document written with ID: ", docRef.id);
-        return true
+        return docRef.id
     } catch (e) {
         console.error("Error adding document: ", e);
         return false
