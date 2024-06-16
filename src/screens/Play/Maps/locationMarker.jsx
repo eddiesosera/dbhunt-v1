@@ -5,7 +5,7 @@ import { View } from "react-native-animatable";
 import { Marker } from "react-native-maps";
 import { getUsertLocation } from "../../../util/Services/Map/getUserLocation";
 
-export const LocationMarker = ({ username, location,coordinate }) => {
+export const LocationMarker = ({ username, location, label, coordinate }) => {
   useEffect(() => {
     if (location.latitude) {
       // console.log("User location: " + JSON.stringify(location));
@@ -22,7 +22,7 @@ export const LocationMarker = ({ username, location,coordinate }) => {
     >
       <TouchableOpacity style={styles.userWrap}>
         <Ionicons name="pin" size={21} color="#fff" />
-        <Text style={styles.userText}>You</Text>
+        <Text style={styles.userText}>{label}</Text>
       </TouchableOpacity>
     </Marker>
   );
