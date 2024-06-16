@@ -31,6 +31,7 @@ import { Feather, Ionicons, Octicons } from "@expo/vector-icons";
 import { LocationMarker } from "./Maps/locationMarker";
 import { getUsertLocation } from "../../util/Services/Map/getUserLocation";
 import { calculateCircleCoordinates } from "../../util/Services/Map/radiusCoordinates";
+import { generateRandomCoordinates } from "../../util/Services/Map/randomCoordinates";
 
 const screenHeight = Dimensions.get("screen").height;
 const { StatusBarManager } = NativeModules;
@@ -85,7 +86,19 @@ export const PlayScreen = () => {
     const fetchLocation = async () => {
       const location = await getUsertLocation();
       setUserLocation(location);
+
+      // Generate random coordinates around the user location
+      const radius = 1000; // Radius in meters
+      const numPoints = 10; // Number of random points
+      const randomCoords = generateRandomCoordinates(
+        location,
+        radius,
+        numPoints
+      );
+      setDragonBallsNearby(randomCoords);
+
       console.log("User location (parent): " + userLocation);
+      console.log("Nearby dragons: " + JSON.stringify(dragonBallsNearby));
     };
 
     fetchLocation();
@@ -104,34 +117,29 @@ export const PlayScreen = () => {
               latitudeDelta: 0.0922,
               longitudeDelta: 0.0421,
             }}
+            showsUserLocation={true}
+            followsUserLocation={true}
             // onRegionChangeComplete={}
           >
-            <Marker
-              coordinate={{
-                latitude: userLocation.latitude + 0.02,
-                longitude: userLocation.longitude + 0.01,
-              }}
-              onPress={(e) => {
-                console.log("CLICKED", e.nativeEvent.coordinate);
-                handlePresentModalPress();
-                setIsDragonballActive(!isDragonballActive);
-              }}
-            >
-              <Image
-                style={{ height: 75, width: 75, borderRadius: 50 }}
-                source={dragonball}
-              />
-            </Marker>
-            {/* {
-                                dragonBallsNearby.map(()=>{
-                                    <Marker coordinate={{ latitude: 37.78825, longitude: -122.4324 }}>
-                                    <Image style={{ height: 75, width: 75, borderRadius: 50 }} source={dragonball} />
-                                </Marker>
-                                })
-                            } 
-                             */}
-
+           
             <LocationMarker location={userLocation} />
+
+            {dragonBallsNearby.map((coord, index) => {
+              return (
+                <Marker
+                  key={index}
+                  coordinate={{
+                    latitude: coord.latitude,
+                    longitude: coord.longitude,
+                  }}
+                >
+                  <Image
+                    style={{ height: 75, width: 75, borderRadius: 50 }}
+                    source={dragonball}
+                  />
+                </Marker>
+              );
+            })}
 
             {/* Circle Highlighting Area */}
             <Circle
@@ -140,14 +148,13 @@ export const PlayScreen = () => {
                 longitude: userLocation.longitude,
               }}
               radius={1000}
-              fillColor="rgba(255, 0, 0, 0.2)"
-              strokeColor="rgba(255, 0, 0, 0.8)"
+              fillColor="rgba(255, 177, 10, 0.2)"
+              strokeColor="rgba(255, 177, 10, 0.8)"
               strokeWidth={2}
             />
-
           </MapView>
         ) : (
-          <Text>Loading maps...</Text>
+          <Text style={styles.topRightUsername}>Loading maps...</Text>
         )}
 
         <View style={[styles.topWrap, { top: statusBar }]}>
