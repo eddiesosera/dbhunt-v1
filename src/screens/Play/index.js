@@ -38,7 +38,7 @@ export const PlayScreen = () => {
   const [activeDragonball, setActiveDragonball] = useState({});
 
   // UI
-  const [isDragonballActive, setIsDragonballActive] = useState(false);
+  const [isDragonballActive, setIsDragonballActive] = useState(true);
   const bottomSheetModalRef = useRef(null);
 
   // BOTTOM SHEET VARIABLES
@@ -91,7 +91,7 @@ export const PlayScreen = () => {
     };
 
     fetchLocation();
-  }, [isDragonballActive]);
+  }, [isDragonballActive, activeDragonball]);
 
   return (
     <BottomSheetModalProvider>

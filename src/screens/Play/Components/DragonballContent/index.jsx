@@ -46,14 +46,19 @@ export const DragonballContent = ({
     } else {
       setClaimedBy("Unclaimed");
     }
-  }, [isDragonballActive]);
+  }, [isDragonballActive, content]);
 
   return (
     <View style={styles.dragonballSheet}>
       {isDragonballActive ? (
         <View style={styles.selectedDBWrap}>
           <View style={styles.selectedDBContent}>
-            <Image source={dragonball} style={styles.selectedDBImg} />
+
+            <Image 
+            source={dragonball} 
+            style={styles.selectedDBImg}
+             />
+
             <View style={styles.selectedRightDB}>
               <Text style={styles.selectedRightDBTitle}>Dragonball</Text>
               <View style={styles.selectedRightBtm}>
