@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useContext, useEffect, useRef, useState } from "react";
 import {
   BottomSheetModal,
   BottomSheetModalProvider,
@@ -23,10 +23,12 @@ import { calculateCircleCoordinates } from "../../util/Services/Map/radiusCoordi
 import { generateRandomCoordinates } from "../../util/Services/Map/randomCoordinates";
 import { DragonballContent } from "./Components/DragonballContent";
 import { dragonballsDummy } from "../../util/Services/Data/Dummy/dragonballs";
+import { Context } from "../../util/Global";
 
 const { StatusBarManager } = NativeModules;
 
 export const PlayScreen = () => {
+    const { userLoggedIn} = useContext(Context);
   const navigation = useNavigation();
   const [statusBar, setStatusBar] = useState(0);
 
@@ -139,7 +141,7 @@ export const PlayScreen = () => {
         // style={styles.bottomSheet}
         backgroundStyle={styles.bottomSheet}
       >
-        <DragonballContent isDragonballActive={isDragonballActive} content={activeDragonball} />
+        <DragonballContent isDragonballActive={isDragonballActive} content={activeDragonball} userLoggedIn={userLoggedIn} />
       </BottomSheetModal>
     </BottomSheetModalProvider>
   );

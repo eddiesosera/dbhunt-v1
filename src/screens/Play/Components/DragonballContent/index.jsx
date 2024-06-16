@@ -13,23 +13,38 @@ import { GlobalStyle } from "../../../../util/Style";
 import dragonball from "../../../../../assets/img/misc/dragonball.png";
 import { matchedEntity } from "../../../../util/Services/Data/Filters/General/matchEntity";
 import { playersDummy } from "../../../../util/Services/Data/Dummy/players";
+import { updateItem } from "../../../../util/Services/Data";
 
 const screenHeight = Dimensions.get("screen").height;
 
-export const DragonballContent = ({ isDragonballActive, content }) => {
+export const DragonballContent = ({
+  isDragonballActive,
+  content,
+  userLoggedIn,
+}) => {
   const [claimedBy, setClaimedBy] = useState();
+
+  const collectDragonball = () => {
+    if(!content.owner){
+        updateItem("dragonballs", content.id, {
+            claimed: true,
+            claimedOn: Date.now(),
+            owner: userLoggedIn.id,
+          });
+    }
+    
+  };
 
   useEffect(() => {
     if (content.claimed) {
       let matchedPlayer = matchedEntity(playersDummy, "id", content.owner);
-      if(matchedPlayer.found){
+      if (matchedPlayer.found) {
         setClaimedBy("Claimed by " + matchedPlayer.match.username);
-      }else{
-        setClaimedBy("Unclaimed")
+      } else {
+        setClaimedBy("Unclaimed");
       }
-      
-    }else{
-        setClaimedBy("Unclaimed")
+    } else {
+      setClaimedBy("Unclaimed");
     }
   }, [isDragonballActive]);
 
@@ -57,7 +72,10 @@ export const DragonballContent = ({ isDragonballActive, content }) => {
           </View>
 
           <TouchableOpacity style={GlobalStyle.PrimaryFillButton}>
-            <Text style={GlobalStyle.PrimaryFillButtonText}>
+            <Text
+              style={GlobalStyle.PrimaryFillButtonText}
+              onPress={collectDragonball}
+            >
               Collect Dragonballs
             </Text>
           </TouchableOpacity>
