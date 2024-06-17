@@ -1,11 +1,17 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import avatar from '../../../../../assets/img/characters/belma.png';
 import { FontAwesome6, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { GlobalStyle } from '../../../../util/Style';
+import { Context } from '../../../../util/Global';
 
 export const MidSection = (user) => {
+    const { userLoggedIn, setUserLoggedIn } = useContext(Context);
+
+    useEffect(()=>{
+        console.log("NEWLY LOGGED IN USER: " + JSON.stringify(userLoggedIn))
+    },[userLoggedIn])
 
     return (
         <View style={styles.container}>
@@ -13,21 +19,21 @@ export const MidSection = (user) => {
                 <View style={styles.midTopDeetsTopWrap}>
                     <Image source={avatar} style={styles.midTopDeetsTopAvatar} />
                     <Text style={styles.midTopDeetsTopUsername}>
-                        Jaylen
+                        {userLoggedIn?.username}
                     </Text>
                 </View>
 
                 <View style={styles.midTopDeetsBtmWrap}>
-                    <View style={styles.midTopDeetsBtmItemWrap}>
+                    {/* <View style={styles.midTopDeetsBtmItemWrap}>
                         <FontAwesome6 name="location-dot" size={20} color="black" />
                         <Text style={styles.midTopDeetsBtmItemText}>
                             Pretoria
                         </Text>
-                    </View>
+                    </View> */}
                     <View style={styles.midTopDeetsBtmItemWrap}>
                         <MaterialIcons name="stars" size={20} color="black" />
                         <Text style={styles.midTopDeetsBtmItemText}>
-                            2 collected
+                            {userLoggedIn?.dragonballs?.length} collected
                         </Text>
                     </View>
                 </View>
@@ -36,18 +42,18 @@ export const MidSection = (user) => {
             <View style={styles.midTopBtmWrap}>
                 <View style={styles.midTopBtmCompetitionsWrap}>
                     <Text style={styles.midTopDeetsBtmItemText}>
-                        Completed In
+                        Competed In
                     </Text>
                     <Text style={styles.midTopBtmCompetitionsText}>
-                        2
+                    {userLoggedIn?.hunts?.length}
                     </Text>
                 </View>
-                <View style={GlobalStyle.PrimaryFillButton}>
+                {/* <View style={GlobalStyle.PrimaryFillButton}>
                     <MaterialIcons name="move-down" size={24} color="#fff" />
                     <Text style={GlobalStyle.PrimaryFillButtonText}>
                         Loot
                     </Text>
-                </View>
+                </View> */}
             </View>
         </View>
     )

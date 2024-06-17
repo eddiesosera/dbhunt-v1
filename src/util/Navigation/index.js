@@ -15,15 +15,15 @@ const Stack = createStackNavigator();
 
 export const MainNavigation = () => {
     const { userEmail, setUserEmail } = useContext(Context);
-    const { loggedIn, setLoggedIn } = useContext(Context);
+    const { isUserLoggedIn, setIsUserLoggedIn } = useContext(Context);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(config, (user) => {
             if (user) {
-                setLoggedIn(true)
+                setIsUserLoggedIn(true)
                 console.log("User logged in: " + user.email);
             } else {
-                setLoggedIn(false)
+                setIsUserLoggedIn(false)
                 console.log("No user logged in");
             }
         })
@@ -33,7 +33,7 @@ export const MainNavigation = () => {
     return (
         <NavigationContainer>
             {
-                userEmail !== ""
+                 isUserLoggedIn === true
                     ? (
                         <Stack.Navigator screenOptions={{ headerShown: false }} options={{ tabBarVisible: false }}>
                             <Stack.Screen name="Tabs" component={TabNavigate} />

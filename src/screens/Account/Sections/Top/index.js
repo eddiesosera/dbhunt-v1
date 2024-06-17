@@ -1,13 +1,14 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Logo from '../../../../../assets/img/logo/app_logo_bnw.png'
 import { Ionicons } from '@expo/vector-icons';
 import { ModalElement } from '../../../../elements/Modal';
 import { useNavigation } from '@react-navigation/native';
 import { ModalStyle } from '../../../../util/Style/Modal';
+import { Context } from '../../../../util/Global';
 
 export const TopSection = () => {
-
+    const { userLoggedIn, setUserLoggedIn } = useContext(Context);
     const [modalVisible, setModalVisible] = useState(false);
 
     const updateModalState = (state) => {

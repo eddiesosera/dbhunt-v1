@@ -1,5 +1,5 @@
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 // Import Character Images
@@ -10,12 +10,14 @@ import char4 from '../../../../assets/img/characters/trunks-crop.png';
 import char5 from '../../../../assets/img/characters/majin-boo.png';
 import { GlobalStyle } from '../../../util/Style';
 import { Ionicons } from '@expo/vector-icons';
+import { getItem, updateItem } from '../../../util/Services/Data';
 
 const width = Dimensions.get("screen").width;
 
-export const ChooseAvatarScreen = () => {
-  const [username, setUsername] = useState("Jaylen");
-  const [selectedAvatar, setSelectedAvatar] = useState('goku')
+export const ChooseAvatarScreen = ({ route }) => {
+  const { data } = route.params;
+  const [username, setUsername] = useState("");
+  const [selectedAvatar, setSelectedAvatar] = useState('1')
 
   const navigation = useNavigation();
   const goToScreen = () => {
@@ -28,38 +30,49 @@ export const ChooseAvatarScreen = () => {
       img: ''
     },
     {
-      id: 'goku',
+      id: '1',
       img: char1
     },
     {
-      id: 'belma',
+      id: '2',
       img: char2
     },
     {
-      id: 'vegeta',
+      id: '3',
       img: char3
     },
     {
-      id: 'trunks',
+      id: '4',
       img: char4
     },
     {
-      id: 'majin',
+      id: '5',
       img: char5
     },
   ];
   const viewSelectedAvatar = characters.find(avatar => avatar.id === selectedAvatar);
 
-  const state = {
-    contrast: 1,
-    saturation: 1,
-  };
-
-  const saveAvatar = () => {
+  const saveAvatar = async () => {
     // Save avatar to profile
     // Design and show Profile animation, THEN navigate to account
-    navigation.navigate('Account', { screen: 'AccountStack' });
+    if(selectedAvatar !== "1"){
+      const updatePlayer = await updateItem("players",data.user,{avatar: selectedAvatar})
+      navigation.navigate('Account', { screen: 'AccountStack' });
+    }else{
+      navigation.navigate('Account', { screen: 'AccountStack' });
+    }
+
   };
+
+  useEffect(()=>{
+    const getNewPlayer = async () => {
+      const user = await getItem("players", data?.user);
+      setUsername(user.username)
+    }
+
+    getNewPlayer()
+
+  },[username])
 
   return (
     <View style={styles.container}>
@@ -93,6 +106,7 @@ export const ChooseAvatarScreen = () => {
                 return (
                   character.id !== "ADD_NEW"
                     ? (<TouchableOpacity
+                    key={i}
                       onPress={() => { setSelectedAvatar(character.id) }}
                       style={[
                         styles.bottomImgWrap, selectedAvatar === character.id && styles.selectedWrap,]}>

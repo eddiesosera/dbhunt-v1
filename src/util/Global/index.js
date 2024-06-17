@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const Context = React.createContext();
 
 export const GlobalProvider = ({ children }) => {
-    const [userEmail, setUserEmail] = useState("");
-    const [userLoggedIn, setUseLoggedIn] = useState({id:'1'});
+    const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+    const [userLoggedIn, setUserLoggedIn] = useState({id:'1'});
+
+    useEffect(()=>{
+
+    },[isUserLoggedIn, userLoggedIn])
 
     return (
         <Context.Provider value={{
-             userEmail, userLoggedIn,
-             setUserEmail, setUseLoggedIn 
+            isUserLoggedIn, userLoggedIn,
+            setIsUserLoggedIn, setUserLoggedIn 
              }}>
             {children}
         </Context.Provider>

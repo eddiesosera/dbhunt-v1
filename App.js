@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
 import { MainNavigation, Screens, TabNavigate } from './src/util/Navigation';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { LoadFonts } from './assets/fonts';
 import { onAuthStateChanged } from 'firebase/auth';
-import { GlobalProvider } from './src/util/Global';
+import { Context, GlobalProvider } from './src/util/Global';
 import { config } from './src/util/Services/firebase';
 import { StatusBar } from 'expo-status-bar';
 
@@ -14,7 +14,7 @@ import loaderImg from './assets/img/background/loading.png';
 const screenWidth = Dimensions.get("screen").width;
 
 const App = () => {
-
+  // const { isUserLoggedIn, setIsUserLoggedIn } = useContext(Context);
   const [isFontLoaded, setIsFontsLoaded] = useState(false);
   const getFontsLoadedState = (state) => {
     setIsFontsLoaded(state)
@@ -26,15 +26,15 @@ const App = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(config, (user) => {
-      if (user) {
-        setLoggedIn(true)
-        console.log("User logged in: " + user.email);
-        initScreen = 'Profile';
-      } else {
-        setLoggedIn(false)
-        console.log("No user logged in");
-        initScreen = 'Login';
-      }
+      // if (user) {
+      //   setIsUserLoggedIn(true)
+      //   console.log("User logged in: " + user.email);
+      //   initScreen = 'Profile';
+      // } else {
+      //   setIsUserLoggedIn(false)
+      //   console.log("No user logged in");
+      //   initScreen = 'Login';
+      // }
     })
     return unsubscribe
   }, [])
