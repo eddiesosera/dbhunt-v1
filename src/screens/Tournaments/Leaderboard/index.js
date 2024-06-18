@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Table } from './Table'
 import { TopThree } from './TopThree'
 import { playersDummy } from '../../../util/Services/Data/Dummy/players'
@@ -9,6 +9,7 @@ import { Octicons } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { avatarsDummy } from '../../../util/Services/Data/Dummy/avatar'
 import { Bottom } from './Bottom'
+import { Context } from '../../../util/Global'
 
 export const LeaderboardScreen = ({ navigation }) => {
     const [player, setPlayer] = useState({});
@@ -16,6 +17,7 @@ export const LeaderboardScreen = ({ navigation }) => {
     const [hunt, setHunt] = useState({});
     const [avatars, setAvatars] = useState([]);
     const [topPlayers, setTopPlayers] = useState([]);
+    const { userLoggedIn } = useContext(Context);
 
     useEffect(() => {
         // Match Player:
@@ -46,7 +48,7 @@ export const LeaderboardScreen = ({ navigation }) => {
                     <Octicons name="chevron-left" size={24} color="black" />
                 </TouchableOpacity>
                 <Text style={styles.topHeader}>Leaderboard</Text>
-                <Text style={styles.topHuntName}>Pretoria Hunt</Text>
+                <Text style={styles.topHuntName}>{userLoggedIn?.region?.address} Hunt</Text>
             </View>
 
             <View style={styles.playersListsWrap}>

@@ -1,20 +1,22 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react';
+import React, { useContext } from 'react';
 
 import HuntBg from '../../../../../assets/img/background/hunt_bg.png';
 import img1 from '../../../../../assets/img/characters/bardock.png';
 import { Row } from '../../Leaderboard/Table/Row';
 import { useNavigation } from '@react-navigation/native';
+import { Context } from '../../../../util/Global';
 
 export const HuntCard = ({ competitionId, region, customStyle, isMinimized }) => {
+    const { userLoggedIn } = useContext(Context);
     const navigation = useNavigation();
     let minHeight = 150;
-    const userLoggedIn = {
-        id: 4,
-        avatar: img1,
-        username: 'Huey',
-        collected: ["", "", "", "",]
-    };
+    // const userLoggedIn = {
+    //     id: 4,
+    //     avatar: img1,
+    //     username: 'Huey',
+    //     collected: ["", "", "", "",]
+    // };
 
     const goToCompetition = () => {
         navigation.navigate("Leaderboard")
@@ -32,10 +34,10 @@ export const HuntCard = ({ competitionId, region, customStyle, isMinimized }) =>
             >
                 <View style={styles.deetsTitleWrap}>
                     <Text style={styles.deetsTitleL}>
-                        Pretoria {region}
+                       {userLoggedIn?.region?.address} {region}
                     </Text>
                     <Text style={styles.deetsTitleR}>
-                        Hunt
+                    {userLoggedIn?.region?.address}Hunt
                     </Text>
                 </View>
                 <Text style={styles.deetsTimeLeft}>
@@ -49,7 +51,7 @@ export const HuntCard = ({ competitionId, region, customStyle, isMinimized }) =>
                         <Row
                             img={userLoggedIn.avatar}
                             name={userLoggedIn.username}
-                            collected={userLoggedIn.collected.length}
+                            collected={userLoggedIn?.collected?.length || 0}
                             rank={userLoggedIn.id}
                         />
                     )

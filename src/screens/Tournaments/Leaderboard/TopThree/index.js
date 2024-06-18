@@ -1,8 +1,10 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { matchedEntity } from '../../../../util/Services/Data/Filters/General/matchEntity'
+import { Context } from '../../../../util/Global';
 
 export const TopThree = ({ topPlayers, playerItem, avatars }) => {
+    const { userLoggedIn } = useContext(Context);
 
     useEffect(() => {
     }, [])
@@ -56,7 +58,8 @@ export const TopThree = ({ topPlayers, playerItem, avatars }) => {
                                     fontFamily: matched ? 'Mona-Sans Bold' : 'Mona-Sans Medium',
                                 }]}>
                                     {/* Labelling 0 in the index as 2, as the array is sorted based on ui */}
-                                    {player?.username}
+                                    {/* {player?.username} */}
+                                    {matched?userLoggedIn?.username:player?.username}
                                     {matched && " (me)"}
                                 </Text>
                             </TouchableOpacity>

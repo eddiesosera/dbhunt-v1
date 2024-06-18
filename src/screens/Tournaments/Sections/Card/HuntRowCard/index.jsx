@@ -1,14 +1,16 @@
 import { Dimensions, Image, StyleSheet, Text, Touchable, View } from 'react-native'
-import React, { Component, useEffect } from 'react'
+import React, { Component, useContext, useEffect } from 'react'
 import { Ionicons } from '@expo/vector-icons';
 
 import img from '../../../../../../assets/img/misc/dragonballs.png';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { Context } from '../../../../../util/Global';
 
 const width = Dimensions.get("screen").width;
 
 export const HuntRowCard = ({ id, title, startDate, endDate, padding, sendModalId }) => {
+    const { userLoggedIn } = useContext(Context);
 
     const deetsWrap = {
         width: width - (80 + 24 + (padding > 0 && padding * 2) - 10)

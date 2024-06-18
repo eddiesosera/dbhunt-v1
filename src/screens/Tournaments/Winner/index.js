@@ -1,7 +1,8 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
-import React from 'react';
+import React, { useContext } from 'react';
 import logoWinner from '../../../../assets/img/logo/app_logo_winner.png';
 import { GlobalStyle } from '../../../util/Style';
+import { Context } from '../../../util/Global';
 
 export const TournamentWinnerScreen = () => {
     const { userLoggedIn } = useContext(Context);
