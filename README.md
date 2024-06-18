@@ -1,13 +1,8 @@
 <!-- Repository Information & Links-->
 <br />
 
-![GitHub repo size](https://img.shields.io/github/repo-size/username/projectname?color=%000000)
-![GitHub watchers](https://img.shields.io/github/watchers/username/projectname?color=%000000)
-![GitHub language count](https://img.shields.io/github/languages/count/username/projectname?color=%000000)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/username/projectname?color=%000000)
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![Instagram][instagram-shield]][instagram-url]
-[![Behance][behance-shield]][behance-url]
 
 <!-- HEADER SECTION -->
 <h5 align="center" style="padding:0;margin:0;">Eddie Sosera</h5>
@@ -122,7 +117,7 @@ Ensure that you have the latest version of [Angular](https://angular.io/guide/se
 
 User look for dragon balls in different places on the map. If a dragon ball is collected it can no longer be collected again.
 
-### Feature 2: Random Loot
+### Feature 2: Finds dargonballs nearby
 
 If you a user is offline and you are in their teritorry you can loot their dragon balls, by playing a card game where you have to choose the correct card.
 
