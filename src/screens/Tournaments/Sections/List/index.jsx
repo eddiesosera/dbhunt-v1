@@ -1,6 +1,7 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useRef } from 'react'
 import { HuntRowCard } from '../Card/HuntRowCard'
+import { formateDate } from '../../../../util/Services/Data/Utility/formatDate';
 
 export const ListOfHunts = ({ hunts, getModalId, header, cardPadding, customStyle, onScroll }) => {
     const currentOffset = useRef(0);
@@ -32,8 +33,8 @@ export const ListOfHunts = ({ hunts, getModalId, header, cardPadding, customStyl
                     <HuntRowCard
                         id={item?.id}
                         title={item?.title}
-                        startDate={item?.startDate}
-                        endDate={item?.endDate}
+                        startDate={formateDate(item?.startDate)}
+                        endDate={formateDate(item?.endDate)}
                         padding={cardPadding}
                         sendModalId={getModalId}
                     />)}

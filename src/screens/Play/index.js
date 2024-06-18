@@ -122,7 +122,7 @@ export const PlayScreen = () => {
           {/* TOP WRAP:RIGHT */}
           <View style={styles.topRight}>
             <View style={styles.topRightItem}>
-              <Text style={styles.topRightHunt}>Cresslawn Hunt</Text>
+              <Text style={styles.topRightHunt}>{userLoggedIn?.region?.address} Hunt</Text>
               <View style={styles.innertextwrap}>
                 <Feather name="users" size={14} color="black" />
                 <Text style={[styles.topRightUsername, { marginLeft: 5 }]}>
@@ -133,7 +133,7 @@ export const PlayScreen = () => {
             <View
               style={[styles.topRightItem, { gap: 3, alignItems: "flex-end" }]}
             >
-              <Text style={styles.topRightUsername}>Eddie</Text>
+              <Text style={styles.topRightUsername}>{userLoggedIn?.username}</Text>
             </View>
           </View>
         </View>

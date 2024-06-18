@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import MapView, { Circle, Marker } from "react-native-maps";
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
 import { LocationMarker } from "./locationMarker";
@@ -7,9 +7,11 @@ const screenWidth = Dimensions.get("screen").width;
 
 import dragonball from "../../../../assets/img/misc/dragonball.png";
 import dragonballClaimed from "../../../../assets/img/misc/dragonball-claimed.png";
+import { Context } from "../../../util/Global";
 
 
 export const MapsComponent = ({ userLocation, dragonBallsNearby, dbPress }) => {
+    const { isUserLoggedIn } = useContext(Context);
 
     useEffect(()=>{
 
