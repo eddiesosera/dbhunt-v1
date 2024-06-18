@@ -5,10 +5,11 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { GlobalStyle } from "../../../../util/Style";
 import { useNavigation } from "@react-navigation/native";
 import { Register } from "../../../../util/Auth/Services/register.service";
+import { Context } from "../../../../util/Global";
 
 export const RegisterForm = () => {
   const [email, setEmail] = useState("");

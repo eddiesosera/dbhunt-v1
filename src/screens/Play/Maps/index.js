@@ -11,7 +11,7 @@ import { Context } from "../../../util/Global";
 
 
 export const MapsComponent = ({ userLocation, dragonBallsNearby, dbPress }) => {
-    const { isUserLoggedIn } = useContext(Context);
+    const { isUserLoggedIn, loggedInUser } = useContext(Context);
 
     useEffect(()=>{
 
