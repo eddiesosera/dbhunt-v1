@@ -4,7 +4,7 @@ export const Context = React.createContext();
 
 export const GlobalProvider = ({ children }) => {
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-    const [userLoggedIn, setUserLoggedIn] = useState({id:'1'});
+    const [userLoggedIn, setUserLoggedIn] = useState({});
 
     useEffect(()=>{
 

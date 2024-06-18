@@ -15,7 +15,7 @@ export const Table = ({ players, playerLogged, avatars }) => {
                     return (
                         <Row
                             avatars={avatars}
-                            img={matchedEntity(avatars, "id", item.avatar)?.match.image}
+                            img={matchedEntity(avatars, "id", item.avatar)?.match?.image}
                             name={item.username}
                             collected={item.dragonballs.length}
                             rank={index + 3}

@@ -30,10 +30,10 @@ export const ListOfHunts = ({ hunts, getModalId, header, cardPadding, customStyl
                 data={hunts}
                 renderItem={({ item }) => (
                     <HuntRowCard
-                        id={item.id}
-                        title={item.title}
-                        startDate={item.startDate}
-                        endDate={item.endDate}
+                        id={item?.id}
+                        title={item?.title}
+                        startDate={item?.startDate}
+                        endDate={item?.endDate}
                         padding={cardPadding}
                         sendModalId={getModalId}
                     />)}

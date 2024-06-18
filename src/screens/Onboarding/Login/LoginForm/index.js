@@ -45,6 +45,8 @@ export const LoginForm = () => {
     
           // Navigate to Account
           navigation.navigate("Account", { screen: "OnboardingStack" });
+
+          setIsUserLoggedIn(true);
         } else {
           console.error("Login failed, response is null or undefined.");
         }

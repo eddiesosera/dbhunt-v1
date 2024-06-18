@@ -1,5 +1,5 @@
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 // Import Character Images
@@ -11,11 +11,13 @@ import char5 from '../../../../assets/img/characters/majin-boo.png';
 import { GlobalStyle } from '../../../util/Style';
 import { Ionicons } from '@expo/vector-icons';
 import { getItem, updateItem } from '../../../util/Services/Data';
+import { Context } from '../../../util/Global';
 
 const width = Dimensions.get("screen").width;
 
 export const ChooseAvatarScreen = ({ route }) => {
   const { data } = route.params;
+  const { userLoggedIn, setUserLoggedIn } = useContext(Context);
   const [username, setUsername] = useState("");
   const [selectedAvatar, setSelectedAvatar] = useState('1')
 
@@ -54,11 +56,23 @@ export const ChooseAvatarScreen = ({ route }) => {
 
   const saveAvatar = async () => {
     // Save avatar to profile
-    // Design and show Profile animation, THEN navigate to account
+    // Design and show Profile animation, then navigate to account
     if(selectedAvatar !== "1"){
-      const updatePlayer = await updateItem("players",data.user,{avatar: selectedAvatar})
+      const updatePlayer = await updateItem("players", data.userId, {avatar: selectedAvatar});
+      const getUpdatedPlayer = await getItem("players", data.userId)
+
+      console.log("newly udated player: " + getUpdatedPlayer);
+
+      setUserLoggedIn(getUpdatedPlayer);
+
       navigation.navigate('Account', { screen: 'AccountStack' });
-    }else{
+    } else{
+
+      // If user doesnt change avatar
+      const player = await getItem("players", data.userId);
+      console.log("newly udated player: " + player);
+      setUserLoggedIn(player);
+
       navigation.navigate('Account', { screen: 'AccountStack' });
     }
 
@@ -66,7 +80,7 @@ export const ChooseAvatarScreen = ({ route }) => {
 
   useEffect(()=>{
     const getNewPlayer = async () => {
-      const user = await getItem("players", data?.user);
+      const user = await getItem("players", data?.userId);
       setUsername(user.username)
     }
 
@@ -119,7 +133,7 @@ export const ChooseAvatarScreen = ({ route }) => {
                       }
 
                     </TouchableOpacity>)
-                    : (<TouchableOpacity style={styles.bottomImgWrap}>
+                    : (<TouchableOpacity key={i} style={styles.bottomImgWrap}>
                       <Ionicons name="cloud-upload-outline" size={36} color="#55575D" />
                     </TouchableOpacity>)
                 )

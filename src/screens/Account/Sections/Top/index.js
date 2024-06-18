@@ -9,6 +9,7 @@ import { Context } from '../../../../util/Global';
 
 export const TopSection = () => {
     const { userLoggedIn, setUserLoggedIn } = useContext(Context);
+    const { isUserLoggedIn, setIsUserLoggedIn } = useContext(Context);
     const [modalVisible, setModalVisible] = useState(false);
 
     const updateModalState = (state) => {
@@ -20,6 +21,7 @@ export const TopSection = () => {
 
     const navigation = useNavigation();
     const goToScreen = () => {
+        setIsUserLoggedIn(false)
         navigation.navigate('OnboardingStack', { screen: 'Onboarding' }); // Replace 'ScreenName' with the name of the screen you want to navigate to
     };
 
@@ -31,9 +33,9 @@ export const TopSection = () => {
             </TouchableOpacity>
 
             <ModalElement isOpened={modalVisible} setModalVisible={updateModalState}>
-                <TouchableOpacity onPress={viewModal} style={ModalStyle.ModalButton}>
+                {/* <TouchableOpacity onPress={viewModal} style={ModalStyle.ModalButton}>
                     <Text style={ModalStyle.ModalButtonText}>Edit</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <TouchableOpacity onPress={goToScreen} style={ModalStyle.ModalButton}>
                     <Text style={ModalStyle.ModalButtonText}>Logout</Text>
                 </TouchableOpacity>

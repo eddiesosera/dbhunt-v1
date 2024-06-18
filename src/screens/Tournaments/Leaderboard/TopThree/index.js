@@ -13,7 +13,7 @@ export const TopThree = ({ topPlayers, playerItem, avatars }) => {
             {
                 topPlayers?.map((player, i) => {
                     const matched = player.id === playerItem.id;
-                    const img = matchedEntity(avatars, "id", player.avatar)?.match.image
+                    const img = matchedEntity(avatars, "id", player.avatar)?.match?.image
                     return (
                         i === 1 ? (
                             <TouchableOpacity key={player.id} style={[styles.playerItem, {

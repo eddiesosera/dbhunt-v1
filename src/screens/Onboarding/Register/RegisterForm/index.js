@@ -15,6 +15,7 @@ export const RegisterForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(true);
+  const { isUserLoggedIn, setIsUserLoggedIn } = useContext(Context);
 
   const navigation = useNavigation();
   const goToScreen = (screen) => {
@@ -25,9 +26,10 @@ export const RegisterForm = () => {
     navigation.navigate("ChooseAvatar", {
       screen: "OnboardinStack",
       data: {
-        user: userId,
+        userId: userId,
       },
     });
+    setIsUserLoggedIn(true)
   };
 
   const handleRegister = () => {

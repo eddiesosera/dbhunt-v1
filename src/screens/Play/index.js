@@ -8,7 +8,13 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useCallback, useContext, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import {
   BottomSheetModal,
   BottomSheetModalProvider,
@@ -24,11 +30,12 @@ import { generateRandomCoordinates } from "../../util/Services/Map/randomCoordin
 import { DragonballContent } from "./Components/DragonballContent";
 import { dragonballsDummy } from "../../util/Services/Data/Dummy/dragonballs";
 import { Context } from "../../util/Global";
+import { NotLoggedIn } from "../Account/NotLoggedIn";
 
 const { StatusBarManager } = NativeModules;
 
 export const PlayScreen = () => {
-    const { userLoggedIn} = useContext(Context);
+  const { userLoggedIn, isUserLoggedIn } = useContext(Context);
   const navigation = useNavigation();
   const [statusBar, setStatusBar] = useState(0);
 
@@ -48,7 +55,7 @@ export const PlayScreen = () => {
   const handleDBPress = (db) => {
     // setIsDragonballActive(!isDragonballActive);
     displayModal();
-    setActiveDragonball(db)
+    setActiveDragonball(db);
   };
 
   const goBack = () => {
@@ -97,11 +104,16 @@ export const PlayScreen = () => {
     <BottomSheetModalProvider>
       <StatusBar translucent />
       <View style={styles.page}>
-        <MapsComponent
-          userLocation={userLocation}
-          dragonBallsNearby={dragonBallsNearby}
-          dbPress={handleDBPress}
-        />
+        {isUserLoggedIn ? (
+          <MapsComponent
+            userLocation={userLocation}
+            dragonBallsNearby={dragonBallsNearby}
+            dbPress={handleDBPress}
+          />
+        ) : (
+          <NotLoggedIn />
+        )}
+
         <View style={[styles.topWrap, { top: statusBar }]}>
           {/* TOP WRAP: LEFT */}
           <TouchableOpacity style={styles.topBackButton} onPress={goBack}>
@@ -141,7 +153,11 @@ export const PlayScreen = () => {
         // style={styles.bottomSheet}
         backgroundStyle={styles.bottomSheet}
       >
-        <DragonballContent isDragonballActive={isDragonballActive} content={activeDragonball} userLoggedIn={userLoggedIn} />
+        <DragonballContent
+          isDragonballActive={isDragonballActive}
+          content={activeDragonball}
+          userLoggedIn={userLoggedIn}
+        />
       </BottomSheetModal>
     </BottomSheetModalProvider>
   );
