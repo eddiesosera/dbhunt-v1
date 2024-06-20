@@ -1,8 +1,15 @@
 <!-- Repository Information & Links-->
-<br />
-
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![Instagram][instagram-shield]][instagram-url]
+
+<br />
+
+<!-- Cover Image-->
+ <a href="https://github.com/eddiesosera/dbhunt">
+    <img src="./assets/readme/cover.png" alt="Cover Image">
+  </a>
+
+<br />
 
 <!-- HEADER SECTION -->
 <h5 align="center" style="padding:0;margin:0;">Eddie Sosera</h5>
@@ -12,7 +19,7 @@
 
 <p align="center">
 
-  <a href="https://github.com/eddiesosera/dbhunt">
+  <a href="https://github.com/eddiesosera/dbhunt-v1">
     <img src="./assets//icon.png" alt="Logo" width="140" height="140">
   </a>
   
