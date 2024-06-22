@@ -5,11 +5,10 @@
 
 <br />
 
-    <p align="center" style="display: flex; flex-direction: row;">
+<p align="center">
 Eddie Sosera · 21100419
 </p>
-    <br>
-    <br>
+    <br />
 
 <!-- Cover Image-->
  <a href="https://github.com/eddiesosera/dbhunt">
@@ -17,7 +16,7 @@ Eddie Sosera · 21100419
   </a>
 
 <!-- HEADER SECTION -->
-</br>
+<br />
 
 <p align="center">
 
