@@ -1,4 +1,5 @@
 <!-- Repository Information & Links-->
+
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![Instagram][instagram-shield]][instagram-url]
 
@@ -12,9 +13,11 @@
 <br />
 
 <!-- HEADER SECTION -->
-<h5 align="center" style="padding:0;margin:0;">Eddie Sosera</h5>
-<h5 align="center" style="padding:0;margin:0;">21100419</h5>
-<h6 align="center">DB Hunt</h6>
+<p align="center">
+<h5>Eddie Sosera</h5>
+.
+<h5>21100419</h5>
+</p>
 </br>
 
 <p align="center">
@@ -23,10 +26,10 @@
     <img src="./assets//icon.png" alt="Logo" width="140" height="140">
   </a>
   
-  <h3 align="center">DragonHunt</h3>
-
+  <h3 align="center">DBHunt</h3>
   <p align="center">
     Let the Hunt begin!
+    <br>
     <br>
       <a href="https://github.com/eddiesoseradbhunt"><strong>Explore the docs »</strong></a>
    <br />
