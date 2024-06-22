@@ -5,17 +5,18 @@
 
 <br />
 
+    <p align="center" style="display: flex; flex-direction: row;">
+Eddie Sosera · 21100419
+</p>
+    <br>
+    <br>
+
 <!-- Cover Image-->
  <a href="https://github.com/eddiesosera/dbhunt">
     <img src="./assets/readme/cover.png" alt="Cover Image">
   </a>
 
-<br />
-
 <!-- HEADER SECTION -->
-<p align="center" style="display: flex; flex-direction: row;">
-Eddie Sosera · 21100419
-</p>
 </br>
 
 <p align="center">
