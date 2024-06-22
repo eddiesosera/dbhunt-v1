@@ -13,7 +13,7 @@
 <br />
 
 <!-- HEADER SECTION -->
-<p align="center">
+<p align="center" style="display: flex; flex-direction: row;">
 <h5>Eddie Sosera</h5>
 .
 <h5>21100419</h5>
