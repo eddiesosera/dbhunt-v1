@@ -17,11 +17,7 @@ import { updateItem } from "../../../../util/Services/Data";
 
 const screenHeight = Dimensions.get("screen").height;
 
-export const DragonballContent = ({
-  isDragonballActive,
-  content,
-  userLoggedIn,
-}) => {
+export const DragonballContent = ({ isDragonballActive, content, userLoggedIn }) => {
   const [claimedBy, setClaimedBy] = useState();
 
   const collectDragonball = () => {
