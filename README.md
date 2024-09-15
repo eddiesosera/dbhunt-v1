@@ -84,8 +84,9 @@ Dragonball Hunt is a mobile game which allows players to create and join hunts (
 ### Built With
 
 - [![React Native][react-badge]][react-url]
-- [Expo](https://expo.dev/)
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [![Expo][expo-badge]][expo-url]
+- [![Firebase][firebase-badge]][firebase-url]
+- - [![Google Maps][googlemaps-badge]][googlemaps-url]
 
 <!-- GETTING STARTED -->
 <!-- Make sure to add appropriate information about what prerequesite technologies the user would need and also the steps to install your project on their own mashines -->
@@ -345,11 +346,11 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 
 [react-badge]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactnative.dev
-[expo-badge]: https://img.shields.io/badge/Expo-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[expo-url]: https://reactnative.dev
-[firebase-badge]: https://img.shields.io/badge/Firebase-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[firebase-url]: https://reactnative.dev
-[googlemaps-badge]: https://img.shields.io/badge/Firebase-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[googlemaps-url]: https://reactnative.dev
-[vscode-badge]: https://img.shields.io/badge/Expo-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[vscode-url]: https://reactnative.dev
+[expo-badge]: https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white
+[expo-url]: https://docs.expo.dev/
+[firebase-badge]: https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white
+[firebase-url]: https://firebase.google.com/
+[googlemaps-badge]: https://img.shields.io/badge/Google%20Maps-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white
+[googlemaps-url]: https://developers.google.com/maps
+[vscode-badge]: https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white
+[vscode-url]: https://code.visualstudio.com/
