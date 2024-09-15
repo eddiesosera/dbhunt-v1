@@ -163,75 +163,27 @@ The `Conceptual Process` is the set of actions, activities and research that was
 
 ### Ideation
 
-#### MoodBoard Segment
+#### MoodBoard
 
-<!-- <img src="readmeAssets\Moodboard section.png"> -->
+<img src="./assets/readme/moodboard.jpg">
 
 <br>
 
-### Wireframes
+<!-- ### Wireframes
 
 Home Page Wireframe
 
-<!-- <img src="readmeAssets\homeideation.png"> -->
+<img src="readmeAssets\homeideation.png"> -->
 
-<br>
+<!-- ### User-flow
 
-The Inventory Page Wireframe
+The user flow diagram
 
-<!-- <img src="readmeAssets\Inventory List Page wire frame.png"> -->
-
-<br>
-
-The warehouse page wireframe
-
-<!-- <img src="readmeAssets\Warehouse page Wire frame (no Rounded Corners).png"> -->
-
-<br>
-
-### User-flow
-
-The userflow diagram
-
-<!-- <img src="readmeAssets\userJourney.png"> -->
-
-### Page Designs
-
-Onboarding Page: Login
-
-<!-- <img src="readmeAssets\Onboarding.png"> -->
-
-Onboarding Page: Register
-
-<!-- <img src="readmeAssets\Onboarding.png"> -->
-
-Onboarding Page: Choose Avatar
-
-<!-- <img src="readmeAssets\Onboarding.png"> -->
-
-Home Page
-
-<!-- <img src="readmeAssets\Homefinaldesign.png"> -->
-
-Inventory Page
-
-<!-- <img src="readmeAssets\Inventory List Page.png"> -->
-
-Skateboard Page
-
-<!-- <img src="readmeAssets\Skateboard List.png"> -->
-
-Craft Page
-
-<!-- <img src="readmeAssets\Craft Page.png"> -->
-
-Account Page
-
-<!-- <img src="readmeAssets\Account.png"> -->
+<img src="readmeAssets\userJourney.png"> -->
 
 ### Database Architecture
 
-<!-- <img src="readmeAssets\database Architecture.png"> -->
+<img src="./assets/readme/databaseModel.jpg">
 
 <!-- DEVELOPMENT PROCESS -->
 
