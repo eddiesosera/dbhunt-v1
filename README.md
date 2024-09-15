@@ -34,9 +34,9 @@ Eddie Sosera · 21100419
    <br /> -->
    <a href="path/to/demonstration/video">View Demo</a>
     ·
-    <a href="https://github.com/username/dbhunt/issues">Report Bug</a>
+    <a href="https://github.com/eddiesosera/dbhunt-v1/issues">Report Bug</a>
     ·
-    <a href="https://github.com/username/dbhunt/issues">Request Feature</a>
+    <a href="https://github.com/eddiesosera/dbhunt-v1/issues">Request Feature</a>
 </p>
 <!-- TABLE OF CONTENTS -->
 
@@ -89,7 +89,10 @@ Dragonball Hunt is a mobile game which allows players to create and join hunts (
 - [![Google Maps][googlemaps-badge]][googlemaps-url]
 
 <!-- GETTING STARTED -->
-<!-- Make sure to add appropriate information about what prerequisite technologies the user would need and also the steps to install your project on their own mashines -->
+<!-- Make sure to add appropriate information about what prerequisite technologies the user would need and also the steps to install your project on their own machines -->
+
+<br />
+   <br />
 
 ## Getting Started
 
@@ -103,11 +106,11 @@ Ensure that you have the latest version of [Expo](https://docs.expo.dev/get-star
 The project utilized [Firebase's](https://firebase.google.com/) services for backend functionality:
 
 - `Firestore Database` was utilized for storing data.
-- `Firebase Authentication` was used to handle authentication related service, like logging in and registering users.
+- `Firebase Authentication` was used to handle authentication-related services, like logging in and registering users.
 
 ### Installation
 
-1.  Download the `Expo Go App` from `Google's Play Store` or `Apple's App store`.
+1.  Download the `Expo Go App` from `Google's Play Store` or `Apple's App Store`.
 2.  Open any IDE.
 
 3.  Clone Repository </br>
@@ -125,14 +128,28 @@ The project utilized [Firebase's](https://firebase.google.com/) services for bac
     ```sh
     npm install
     ```
-
+<br />
+   <br />
+   
 ## How to Run the App
 
-1. First, link your backend to your database by filling in the required data in the "\*\*\*" fields in both your config file and the data source file:
+1. After installing Expo on your mobile phone, open the Expo app.
+2. Ensure your computer and mobile device are on the same Wi-Fi network.
+3. Scan the QR code displayed in your terminal or browser within your Expo app.
+4. Your Expo app will load on your mobile device and changes you make to the code will auto-refresh on the device.
+5. Alternatively, after running your project you can open and access it using an emulator. Read more [here](https://docs.expo.dev/workflow/android-studio-emulator/).
 
 ### Rules of the game:
 
-1. Create an account to access competitions and profile or Log in.
+1. **Join or Create a Hunt**: After creating your account, join an existing hunt in your area or create your own.
+2. **Find and Collect Dragon Balls**: Search for and collect Dragon Balls during the hunt.
+3. **View Hunt Information**: Access details about the hunt, including duration and rules.
+4. **Check Leaderboard Rankings**: Monitor your ranking compared to other players on the leaderboard.
+5. **Win the Tournament**: At the end of the tournament period, the player with the most Dragon Balls wins.
+6. **Earn a Super Saiyan Level Boost**: The winner is awarded a Super Saiyan level boost.
+
+<br />
+   <br />
 
 <!-- FEATURES AND FUNCTIONALITY-->
 <!-- You can add the links to all of your imagery at the bottom of the file as references -->
@@ -141,39 +158,33 @@ The project utilized [Firebase's](https://firebase.google.com/) services for bac
 
 <img src="./assets/readme/features/1feature1.jpg" alt="Feature 1"/>
 
-Users look for dragon balls in different places on the map. If a dragon ball is collected it can no longer be collected again.
+Enables users to `create a new account` or log into their `existing account`.
 <br/>
 <br/>
 
 <img src="./assets/readme/features/2feature2.jpg" alt="Feature 2"/>
 
-<!-- ### Feature 2: Finds dargonballs nearby
-
-If you a user is offline and you are in their teritorry you can loot their dragon balls, by playing a card game where you have to choose the correct card. -->
-
+Users `look for dragon balls` in different places on the map relative to their live location. If a dragon ball is collected it can no longer be collected again.
+<br/>
 <br/>
 
 <img src="./assets/readme/features/3feature3.jpg" alt="Feature 3"/>
 
-<!-- ### Feature 3: DragonBall Z avatars
-
-Users sign up and can choose existing avatars based on DBZ characters. -->
-
+Users can `join nearby hunts` to compete.
+<br/>
 <br/>
 
 <img src="./assets/readme/features/4feature4.jpg" alt="Feature 4"/>
 
-<!-- ### Feature 4: DragonBall Z avatars
-
-Users sign up and can choose existing avatars based on DBZ characters. -->
-
+The leaderboard details all the contestants and their ranking in the hunt based on the dragonballs they collected.
+<br/>
 <br/>
 
 <img src="./assets/readme/features/5feature5.jpg" alt="Feature 5"/>
 
-<!-- ### Feature 3: DragonBall Z avatars
-
-Users sign up and can choose existing avatars based on DBZ characters. -->
+Enables users to create their own hunts.
+<br/>
+   <br />
 
 ## Concept Process
 
@@ -181,7 +192,7 @@ The `Conceptual Process` is the set of actions, activities and research that was
 
 ### Ideation
 
-#### MoodBoard
+#### Moodboard
 
 <img src="./assets/readme/moodboard.jpg">
 
@@ -203,6 +214,9 @@ The user flow diagram
 
 <img src="./assets/readme/databaseModel.jpg">
 
+<br />
+   <br />
+
 <!-- DEVELOPMENT PROCESS -->
 
 ## Development Process
@@ -220,25 +234,17 @@ The `Development Process` is the technical implementations and functionality don
 #### Highlights
 
 - Using the Google Maps SDK led to many `"aha" moments` as I fully explored its capabilities.
-- I was proud to reverse-engineer addresses, converting between region names and coordinates.
-- Implementing user registration with Firebase Authentication and Firestore Database was another highlight.
-- Throughout the process, I learned when to appropriately use asynchronous functions.
-- During the process I learnt when to appropriately use asynchronous functions and when not to.
-- Finally, I enjoyed styling React Native elements with the same flexibility as CSS.
+- I was proud to `reverse-engineer` addresses, converting between region names and coordinates.
+- Implementing `user registration` with Firebase Authentication and Firestore Database was another highlight.
+- Throughout the process, I learned when to appropriately use `asynchronous functions`.
+- Finally, I enjoyed `styling React Native` elements with the same flexibility as CSS.
 
 #### Challenges
 
-- At the beginning of the project, I struggled to conceptualize how to use the Google Maps SDK to obtain the user's address and map the dragon balls relative to the user's locations.
-- Calculating the game mechanics for determining the winner and continuing the game was challenging.
+- At the beginning of the project, I struggled to conceptualize how to use the Google Maps SDK to `obtain the user's address` and map the dragon balls relative to the user's locations.
+- Calculating the `game mechanics` for determining the winner and continuing the game was challenging.
 
 <!-- stipulate how you've conducted testing in the form of peer reviews, feedback and also functionality testing, like unit tests (if applicable) -->
-
-#### Feedback from Reviews
-
-`Peer Reviews` were conducted by my fellow students and lecturer. The following feedback I found useful:
-
-- Feedback one.
-- Feedback two.
 
 #### Unit Tests
 
@@ -256,7 +262,8 @@ The `Development Process` is the technical implementations and functionality don
 
 - Refining the gaming mechanism and lifecycle of the game.
 
-<br>
+<br />
+   <br />
 
 ## Final Outcome
 
@@ -273,15 +280,21 @@ The `Development Process` is the technical implementations and functionality don
 
 ### Video Demonstration
 
-To see a run through of the application, click below:
+To see a run-through of the application, click below:
 
 [View Demonstration](https://drive.google.com/file/d/1o6S4B8dsGbbaqzqG9LFMmoX_ZjwM2ls9/view?usp=drive_link)
+
+<br />
+   <br />
 
 <!-- ROADMAP -->
 
 ## Roadmap
 
-See the [open issues](https://github.com/username/projectname/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/eddiesosera/dbhunt-v1/issues) for a list of proposed features (and known issues).
+
+<br />
+   <br />
 
 <!-- CONTRIBUTING -->
 
@@ -294,6 +307,9 @@ Contributions are what makes the open-source community such an amazing place to 
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+<br />
+   <br />
 
 <!-- AUTHORS -->
 
@@ -309,13 +325,19 @@ Contributions are what makes the open-source community such an amazing place to 
   </div>
   </div>
 
+  <br />
+   <br />
+
 <!-- LICENSE -->
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.\
+Distributed under the MIT License. See `LICENSE` for more information.
 
-<!-- LICENSE -->
+<br />
+   <br />
+
+<!-- CONTACT -->
 
 ## Contact
 
@@ -324,15 +346,16 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 - **Project Link** - https://github.com/eddiesosera/dbhunt
 - **Backend Link** - https://github.com/eddiesosera/dbhunt-backend
 
+<br />
+   <br />
+
 <!-- ACKNOWLEDGEMENTS -->
 
 ## Acknowledgements
 
 <!-- all resources that you used and Acknowledgements here -->
 
-- [React Native](https://angular.io/tutorial/first-app)
-- [Expo](path/to/resource)
-- [Mapbox](https://www.pexels.com/photo/a-person-using-a-laptop-6372918/)
+- [PNGegg](https://www.pngegg.com/): for Dragonball Z images and illustrations.
   -->
 
 <!-- Refer to https://shields.io/ for more information and options about the shield links at the top of the ReadMe file -->
