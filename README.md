@@ -127,7 +127,7 @@ The project utilized [Firebase's](https://firebase.google.com/) services for bac
 ### Feature 1: Collect dragon balls
 
 User look for dragon balls in different places on the map. If a dragon ball is collected it can no longer be collected again.
-<img src="./assets/img/features/1feature1.jpg" alt="Feature 1">
+<img src=[feature1] alt="Feature 1">
 
 ### Feature 2: Finds dargonballs nearby
 
@@ -349,9 +349,18 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
+<!--
+[image1]: /path/to/image.png
+[image2]: /path/to/image.png
+-->
+
 <!-- Refer to https://shields.io/ for more information and options about the shield links at the top of the ReadMe file -->
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/eddiesosera/
 [instagram-shield]: https://img.shields.io/badge/-Instagram-black.svg?style=flat-square&logo=instagram&colorB=555
 [instagram-url]: https://www.instagram.com/edd13sc/
+
+<!-- IMAGE LINKS: FEATURES -->
+
+[feature1]: ./assets/readme/features/1feature1.jpg
