@@ -29,9 +29,9 @@ Eddie Sosera · 21100419
     Let the Hunt begin!
     <br>
     <br>
-      <a href="https://github.com/eddiesoseradbhunt"><strong>Explore the docs »</strong></a>
+<!--       <a href="https://github.com/eddiesoseradbhunt"><strong>Explore the docs »</strong></a>
    <br />
-   <br />
+   <br /> -->
    <a href="path/to/demonstration/video">View Demo</a>
     ·
     <a href="https://github.com/username/dbhunt/issues">Report Bug</a>
