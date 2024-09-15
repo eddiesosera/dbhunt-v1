@@ -161,7 +161,6 @@ The project utilized [Firebase's](https://firebase.google.com/) services for bac
 
 <!-- FEATURES AND FUNCTIONALITY-->
 <!-- You can add the links to all of your imagery at the bottom of the file as references -->
-
 ## Features and Functionality
 
 <img src="./assets/readme/features/1feature1.jpg" alt="Feature 1"/>
