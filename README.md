@@ -79,17 +79,17 @@ Eddie Sosera · 21100419
 
 ### Project Description
 
-Dragonball Hunt is a mobile game which allows players to create and join hunts (tournaments) in your region. Players go on hunts to collect dragonballs nearby and the player with the most dragonballs at the and of the tournament wins and is awarded with a Super Saiyan level increase.
+Dragonball Hunt is a mobile game which allows players to create and join hunts (tournaments) in your region. Players go on hunts to collect dragon balls nearby and the player with the most dragon balls at the end of the game wins and is awarded a Super Saiyan level increase.
 
 ### Built With
 
 - [![React Native][react-badge]][react-url]
 - [![Expo][expo-badge]][expo-url]
 - [![Firebase][firebase-badge]][firebase-url]
-- - [![Google Maps][googlemaps-badge]][googlemaps-url]
+- [![Google Maps][googlemaps-badge]][googlemaps-url]
 
 <!-- GETTING STARTED -->
-<!-- Make sure to add appropriate information about what prerequesite technologies the user would need and also the steps to install your project on their own mashines -->
+<!-- Make sure to add appropriate information about what prerequisite technologies the user would need and also the steps to install your project on their own mashines -->
 
 ## Getting Started
 
@@ -217,18 +217,19 @@ The `Development Process` is the technical implementations and functionality don
 
 <!-- stipulate all of the functionality you included in the project -->
 
-- Made use of both `functionality` to implement a specific feature.
-- `MVC/MVVM` design architecture implemented.
-- `Plugin` for this.
-- ETC.
-
 #### Highlights
 
-- Synchronous communication
+- Using the Google Maps SDK led to many `"aha" moments` as I fully explored its capabilities.
+- I was proud to reverse-engineer addresses, converting between region names and coordinates.
+- Implementing user registration with Firebase Authentication and Firestore Database was another highlight.
+- Throughout the process, I learned when to appropriately use asynchronous functions.
+- During the process I learnt when to appropriately use asynchronous functions and when not to.
+- Finally, I enjoyed styling React Native elements with the same flexibility as CSS.
 
 #### Challenges
 
-- Intergrating Mapbox into the Expo workflow with EAS
+- At the beginning of the project, I struggled to conceptualize how to use the Google Maps SDK to obtain the user's address and map the dragon balls relative to the user's locations.
+- Calculating the game mechanics for determining the winner and continuing the game was challenging.
 
 <!-- stipulate how you've conducted testing in the form of peer reviews, feedback and also functionality testing, like unit tests (if applicable) -->
 
@@ -241,20 +242,19 @@ The `Development Process` is the technical implementations and functionality don
 
 #### Unit Tests
 
-`Unit Tests` were conducted to establish working functionality. Here are all the tests that were ran:
+**Test 1** on iOS device:
 
-> [!Note]
-> Post man and insomnia where both used to test all backend CRUD functionality.
+- There were no UI issues on an iOS device.
 
-**Test 1** of Create User functionality :
+**Test 2** on Android device:
 
-- We tested the back of the user create function using Postman to test the CRUD
+- There were no UI issues on an Android device.
 
 ### Future Implementation
 
 <!-- stipulate functionality and improvements that can be implemented in the future. -->
 
-- Refining (a process).
+- Refining the gaming mechanism and lifecycle of the game.
 
 <br>
 
