@@ -127,7 +127,7 @@ The project utilized [Firebase's](https://firebase.google.com/) services for bac
 ### Feature 1: Collect dragon balls
 
 User look for dragon balls in different places on the map. If a dragon ball is collected it can no longer be collected again.
-<img src=[feature1] alt="Feature 1">
+<img src="./assets/readme/features/1feature1.jpg" alt="Feature 1">
 
 ### Feature 2: Finds dargonballs nearby
 
