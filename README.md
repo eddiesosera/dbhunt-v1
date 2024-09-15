@@ -102,10 +102,13 @@ The following instructions will get you a copy of the project up and running on 
 
 ### Prerequisites
 
-Ensure that you have the latest version of [Angular](https://angular.io/guide/setup-local) installed on your machine. The [Plugin](path/to/where/they/can/download/plugin) plugin will also be required.
+Ensure that you have the latest version of [Expo](https://docs.expo.dev/get-started/introduction/) and [React Native](https://reactnative.dev/docs/integration-with-existing-apps) installed on your machine.
 
-**The `Backend` for the Website**
-[BackendRepository](https://github.com/eddiesosera/dv300-term1-backend)
+**The `Backend` for the app**
+The project utilized [Firebase's](https://firebase.google.com/) services for backend functionality.
+
+- `Firestore Database` was utilized for storing data.
+- `Firebase Authentication` was used to handle authentication related service, like logging in and registering users.
 
 ### Installation
 
@@ -124,7 +127,7 @@ Ensure that you have the latest version of [Angular](https://angular.io/guide/se
 ### Feature 1: Collect dragon balls
 
 User look for dragon balls in different places on the map. If a dragon ball is collected it can no longer be collected again.
-[feature1]
+<img src=[feature1] alt="Logo" width="140" height="140">
 
 ### Feature 2: Finds dargonballs nearby
 
@@ -363,4 +366,4 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 
 <!-- IMAGE LINKS: FEATURES -->
 
-[feature1]: (./assets/img/features/1feature1.jpg)
+[feature1]: ./assets/img/features/1feature1.jpg
