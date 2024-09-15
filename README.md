@@ -51,8 +51,8 @@ Eddie Sosera · 21100419
 - [Features and Functionality](#features-and-functionality)
 - [Concept Process](#concept-process)
   - [Ideation](#ideation)
-  - [Wireframes](#wireframes)
-  - [User-flow](#user-flow)
+    <!-- - [Wireframes](#wireframes) -->
+    <!-- - [User-flow](#user-flow) -->
 - [Development Process](#development-process)
   - [Implementation Process](#implementation-process)
     - [Highlights](#highlights)
@@ -75,7 +75,7 @@ Eddie Sosera · 21100419
 
 ## About the Project
 
-<img src="./assets//icon.png" alt="Logo" width="140" height="140">
+<img src="./assets/icon.png" alt="Logo" width="140" height="140">
 
 ### Project Description
 
@@ -108,10 +108,30 @@ The project utilized [Firebase's](https://firebase.google.com/) services for bac
 
 ### Installation
 
-1. Download the Expo Go App from Google Play Store or Apple App store.
-2. Install the node packages on directory of the project and run `npm i` on the command line.
+1.  Download the `Expo Go App` from `Google's Play Store` or `Apple's App store`.
+2.  Open any IDE.
 
-### How to Play
+3.  Clone Repository </br>
+    Run the following in the command line to clone the project:
+
+    ```sh
+    git clone https://github.com/eddiesosera/dbhunt-v1
+    ```
+
+        Open `Software` and select `File | Open...` from the menu. Select the cloned directory and press `Open` button.
+
+4.  Install Dependencies </br>
+    Run the following in the command line to install all the required dependencies:
+
+    ```sh
+    npm install
+    ```
+
+## How to Run the App
+
+1. First, link your backend to your database by filling in the required data in the "\*\*\*" fields in both your config file and the data source file:
+
+### Rules of the game:
 
 1. Create an account to access competitions and profile or Log in.
 
@@ -122,9 +142,8 @@ The project utilized [Firebase's](https://firebase.google.com/) services for bac
 
 <img src="./assets/readme/features/1feature1.jpg" alt="Feature 1"/>
 
-### Feature 1: Collect dragon balls
-
 Users look for dragon balls in different places on the map. If a dragon ball is collected it can no longer be collected again.
+<br/>
 <br/>
 
 <img src="./assets/readme/features/2feature2.jpg" alt="Feature 2"/>
@@ -246,16 +265,9 @@ The `Development Process` is the technical implementations and functionality don
 
 ### Mockups
 
-#### Mockup 1
-
-<!-- <img src="readmeAssets\NewMockup01.png"> -->
+<img src="./assets/readme/mockup/1.jpg" alt="App mockup">
 
 <br>
-
-#### Mockup 2
-
-<!-- <img src="readmeAssets\MockUp02.png"> -->
-
 <br>
 
 <!-- VIDEO DEMONSTRATION -->
@@ -264,7 +276,7 @@ The `Development Process` is the technical implementations and functionality don
 
 To see a run through of the application, click below:
 
-[View Demonstration](path/to/video/demonstration)
+[View Demonstration](https://drive.google.com/file/d/1o6S4B8dsGbbaqzqG9LFMmoX_ZjwM2ls9/view?usp=drive_link)
 
 <!-- ROADMAP -->
 
@@ -286,9 +298,17 @@ Contributions are what makes the open-source community such an amazing place to 
 
 <!-- AUTHORS -->
 
-## Author(s)
+## Authors
 
-- [eddiesosera](https://github.com/eddiesosera)
+<div style="display: flex; justify-content: space-between;">
+  <div style="text-align: center;">
+    <a href="https://github.com/eddiesosera/">
+      <img src="https://github.com/eddiesosera.png" alt="eddie Sosera" width="100px">
+    </a>
+    <br>
+    <sub>Eddie Sosera</sub>
+  </div>
+  </div>
 
 <!-- LICENSE -->
 
