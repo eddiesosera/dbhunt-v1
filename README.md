@@ -124,6 +124,7 @@ Ensure that you have the latest version of [Angular](https://angular.io/guide/se
 ### Feature 1: Collect dragon balls
 
 User look for dragon balls in different places on the map. If a dragon ball is collected it can no longer be collected again.
+[feature1]
 
 ### Feature 2: Finds dargonballs nearby
 
@@ -360,5 +361,6 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 [instagram-shield]: https://img.shields.io/badge/-Instagram-black.svg?style=flat-square&logo=instagram&colorB=555
 [instagram-url]: https://www.instagram.com/edd13sc/
 
-<!-- LINKS: FEATURES -->
-[feature1]: (./assets)
+<!-- IMAGE LINKS: FEATURES -->
+
+[feature1]: (./assets/img/features/1feature1.jpg)
