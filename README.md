@@ -105,7 +105,7 @@ The following instructions will get you a copy of the project up and running on 
 Ensure that you have the latest version of [Expo](https://docs.expo.dev/get-started/introduction/) and [React Native](https://reactnative.dev/docs/integration-with-existing-apps) installed on your machine.
 
 **The `Backend` for the app**
-The project utilized [Firebase's](https://firebase.google.com/) services for backend functionality.
+The project utilized [Firebase's](https://firebase.google.com/) services for backend functionality:
 
 - `Firestore Database` was utilized for storing data.
 - `Firebase Authentication` was used to handle authentication related service, like logging in and registering users.
@@ -127,7 +127,8 @@ The project utilized [Firebase's](https://firebase.google.com/) services for bac
 ### Feature 1: Collect dragon balls
 
 User look for dragon balls in different places on the map. If a dragon ball is collected it can no longer be collected again.
-<img src=[feature1] alt="Logo" width="140" height="140">
+<img src=[feature1]>
+[feature1]
 
 ### Feature 2: Finds dargonballs nearby
 
@@ -214,9 +215,6 @@ Account Page
 <!-- <img src="readmeAssets\Account.png"> -->
 
 ### Database Architecture
-
-See Backend Repo For more!
-[BackendRepository](https://github.com/eddiesosera/dv300-term1-backend)
 
 <!-- <img src="readmeAssets\database Architecture.png"> -->
 
