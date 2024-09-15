@@ -139,14 +139,34 @@ The project utilized [Firebase's](https://firebase.google.com/) services for bac
 4. Your Expo app will load on your mobile device and changes you make to the code will auto-refresh on the device.
 5. Alternatively, after running your project you can open and access it using an emulator. Read more [here](https://docs.expo.dev/workflow/android-studio-emulator/).
 
+<br />
+
 ### Rules of the game:
 
-1. **Join or Create a Hunt**: After creating your account, join an existing hunt in your area or create your own.
-2. **Find and Collect Dragon Balls**: Search for and collect Dragon Balls during the hunt.
-3. **View Hunt Information**: Access details about the hunt, including duration and rules.
-4. **Check Leaderboard Rankings**: Monitor your ranking compared to other players on the leaderboard.
-5. **Win the Tournament**: At the end of the tournament period, the player with the most Dragon Balls wins.
-6. **Earn a Super Saiyan Level Boost**: The winner is awarded a Super Saiyan level boost.
+1. **Join or Create a Hunt**:
+   ```sh
+    After creating your account, join an existing hunt in your area or create your own.
+   ```
+2. **Find and Collect Dragon Balls**:
+  ```sh
+   Search for and collect Dragon Balls during the hunt.
+  ```
+3. **View Hunt Information**:
+  ```sh
+  Access details about the hunt, including duration and rules.
+  ```
+4. **Check Leaderboard Rankings**:
+   ```sh
+    Monitor your ranking compared to other players on the leaderboard.
+    ```
+5. **Win the Tournament**:
+    ```sh
+    At the end of the tournament period, the player with the most Dragon Balls wins.
+    ```
+6. **Earn a Super Saiyan Level Boost**:
+   ```sh
+   The winner is awarded a Super Saiyan-level boost.
+   ```
 
 <br />
    <br />
@@ -242,6 +262,8 @@ The `Development Process` is the technical implementations and functionality don
 
 <!-- stipulate how you've conducted testing in the form of peer reviews, feedback and also functionality testing, like unit tests (if applicable) -->
 
+<br />
+
 #### Unit Tests
 
 **Test 1** on iOS device:
@@ -251,6 +273,8 @@ The `Development Process` is the technical implementations and functionality don
 **Test 2** on Android device:
 
 - There were no UI issues on an Android device.
+
+<br />
 
 ### Future Implementation
 
@@ -352,7 +376,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- all resources that you used and Acknowledgements here -->
 
 - [PNGegg](https://www.pngegg.com/): for Dragonball Z images and illustrations.
-  -->
 
 <!-- Refer to https://shields.io/ for more information and options about the shield links at the top of the ReadMe file -->
 
