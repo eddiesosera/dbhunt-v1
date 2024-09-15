@@ -144,29 +144,17 @@ The project utilized [Firebase's](https://firebase.google.com/) services for bac
 ### Rules of the game:
 
 1. **Join or Create a Hunt**:
-   ```
-    After creating your account, join an existing hunt in your area or create your own.
-   ```
+   ```After creating your account, join an existing hunt in your area or create your own.```
 2. **Find and Collect Dragon Balls**:
-   ```
-   Search for and collect Dragon Balls during the hunt.
-   ```
+   ```Search for and collect Dragon Balls during the hunt.```
 3. **View Hunt Information**:
-   ```
-  Access details about the hunt, including duration and rules.
-  ```
+   ```Access details about the hunt, including duration and rules.```
 4. **Check Leaderboard Rankings**:
-   ```
-    Monitor your ranking compared to other players on the leaderboard.
-    ```
+   ```Monitor your ranking compared to other players on the leaderboard. ```
 5. **Win the Tournament**:
-    ```
-    At the end of the tournament period, the player with the most Dragon Balls wins.
-    ```
+    ```At the end of the tournament period, the player with the most Dragon Balls wins.```
 6. **Earn a Super Saiyan Level Boost**:
-   ```
-   The winner is awarded a Super Saiyan-level boost.
-   ```
+   ```The winner is awarded a Super Saiyan-level boost.```
 
 <br />
    <br />
