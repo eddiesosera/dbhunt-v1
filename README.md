@@ -83,7 +83,7 @@ Dragonball Hunt is a mobile game which allows players to create and join hunts (
 
 ### Built With
 
-- [![React Native][react.js]][react-url]
+- [![React Native][react-badge]][react-url]
 - [Expo](https://expo.dev/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
