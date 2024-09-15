@@ -75,17 +75,13 @@ Eddie Sosera · 21100419
 
 ## About the Project
 
-<!-- header image of project -->
-
-<!-- <img src="readmeAssets\Cover.png"> -->
+<img src="./assets//icon.png" alt="Logo" width="140" height="140">
 
 ### Project Description
 
-A mobile game tournament where contestants compete to collect the most dragonballs
+Dragonball Hunt is a mobile game which allows players to create and join hunts (tournaments) in your region. Players go on hunts to collect dragonballs nearby and the player with the most dragonballs at the and of the tournament wins and is awarded with a Super Saiyan level increase.
 
 ### Built With
-
-<!-- angular -->
 
 - [React Native ](https://reactnative.dev/)
 <!-- Angular Material -->
@@ -112,8 +108,8 @@ The project utilized [Firebase's](https://firebase.google.com/) services for bac
 
 ### Installation
 
-1. Download the APK (Android) or IPA (iOS).
-2. Install package.
+1. Download the Expo Go App from Google Play Store or Apple App store.
+2. Install the node packages on directory of the project and run `npm i` on the command line.
 
 ### How to Play
 
@@ -124,22 +120,42 @@ The project utilized [Firebase's](https://firebase.google.com/) services for bac
 
 ## Features and Functionality
 
+<img src="./assets/readme/features/1feature1.jpg" alt="Feature 1"/>
+
 ### Feature 1: Collect dragon balls
 
-User look for dragon balls in different places on the map. If a dragon ball is collected it can no longer be collected again.
-<img src="./assets/readme/features/1feature1.jpg" alt="Feature 1">
+Users look for dragon balls in different places on the map. If a dragon ball is collected it can no longer be collected again.
+<br/>
 
-### Feature 2: Finds dargonballs nearby
+<img src="./assets/readme/features/2feature2.jpg" alt="Feature 2"/>
 
-If you a user is offline and you are in their teritorry you can loot their dragon balls, by playing a card game where you have to choose the correct card.
+<!-- ### Feature 2: Finds dargonballs nearby
 
-<!-- <img src="readmeAssets\Craft Page.png"> -->
+If you a user is offline and you are in their teritorry you can loot their dragon balls, by playing a card game where you have to choose the correct card. -->
 
-### Feature 3: DragonBall Z avatars
+<br/>
 
-Users sign up and can choose existing avatars based on DBZ characters.
+<img src="./assets/readme/features/3feature3.jpg" alt="Feature 3"/>
 
-<!-- <img src="readmeAssets\Craft Page drag and drop.png"> -->
+<!-- ### Feature 3: DragonBall Z avatars
+
+Users sign up and can choose existing avatars based on DBZ characters. -->
+
+<br/>
+
+<img src="./assets/readme/features/4feature4.jpg" alt="Feature 4"/>
+
+<!-- ### Feature 4: DragonBall Z avatars
+
+Users sign up and can choose existing avatars based on DBZ characters. -->
+
+<br/>
+
+<img src="./assets/readme/features/5feature5.jpg" alt="Feature 5"/>
+
+<!-- ### Feature 3: DragonBall Z avatars
+
+Users sign up and can choose existing avatars based on DBZ characters. -->
 
 ## Concept Process
 
