@@ -223,10 +223,6 @@ The user flow diagram
 
 The `Development Process` is the technical implementations and functionality done in the frontend and backend of the application.
 
-### Backend Functionality
-
-<br>
-
 ### Implementation Process
 
 <!-- stipulate all of the functionality you included in the project -->
