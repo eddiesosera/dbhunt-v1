@@ -83,10 +83,8 @@ Dragonball Hunt is a mobile game which allows players to create and join hunts (
 
 ### Built With
 
-- [React Native ](https://reactnative.dev/)
-<!-- Angular Material -->
+- [![React Native][react.js]][react-url]
 - [Expo](https://expo.dev/)
-<!-- other -->
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 <!-- GETTING STARTED -->
@@ -334,13 +332,7 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 - [React Native](https://angular.io/tutorial/first-app)
 - [Expo](path/to/resource)
 - [Mapbox](https://www.pexels.com/photo/a-person-using-a-laptop-6372918/)
-
-<!-- MARKDOWN LINKS & IMAGES -->
-
-<!--
-[image1]: /path/to/image.png
-[image2]: /path/to/image.png
--->
+  -->
 
 <!-- Refer to https://shields.io/ for more information and options about the shield links at the top of the ReadMe file -->
 
@@ -349,6 +341,15 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 [instagram-shield]: https://img.shields.io/badge/-Instagram-black.svg?style=flat-square&logo=instagram&colorB=555
 [instagram-url]: https://www.instagram.com/edd13sc/
 
-<!-- IMAGE LINKS: FEATURES -->
+<!-- RESOURCES USED LINK -->
 
-[feature1]: ./assets/readme/features/1feature1.jpg
+[react-badge]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[react-url]: https://reactnative.dev
+[expo-badge]: https://img.shields.io/badge/Expo-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[expo-url]: https://reactnative.dev
+[firebase-badge]: https://img.shields.io/badge/Firebase-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[firebase-url]: https://reactnative.dev
+[googlemaps-badge]: https://img.shields.io/badge/Firebase-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[googlemaps-url]: https://reactnative.dev
+[vscode-badge]: https://img.shields.io/badge/Expo-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[vscode-url]: https://reactnative.dev
