@@ -8,7 +8,6 @@ import { getAddressByCoordinates } from "../../Services/Map/getAddressByCoordina
 
 export const Register = async (email, username, password, callBackFunction) => {
   try {
-    //   const auth = getAuth(); // Ensure you initialize auth correctly
     const userCredential = await createUserWithEmailAndPassword(
       config,
       email,
@@ -39,12 +38,10 @@ export const Register = async (email, username, password, callBackFunction) => {
     };
 
     const newUserId = await createItem("players", userDetails);
-    // console.log("Registered user: " + newUserId);
 
     if (callBackFunction) {
       callBackFunction(newUserId);
     }
-
   } catch (error) {
     console.error("Error during registration: ", error.message);
     return false;
